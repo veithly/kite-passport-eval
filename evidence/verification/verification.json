@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-09-17T05:13:38.636348+00:00",
+  "suite_sha256": "ba8af9651ab014242790b39491dcf9137d6d3323cc8c0f94698099c7535b2f5b",
+  "unit_tests": 32,
+  "unit_failures": 0,
+  "unit_errors": 0,
+  "unit_skips": 0,
+  "official_cases": 138,
+  "assertion_deletion_mutants": 424,
+  "synthetic_positive_summary": {
+    "total": 138,
+    "pass": 138,
+    "fail": 0,
+    "error": 0,
+    "missing": 0,
+    "recorded": 138,
+    "complete": true,
+    "assertions": 424,
+    "assertions_passed": 424,
+    "reviewed": 0,
+    "review_failed": 0
+  },
+  "known_failure_summary": {
+    "total": 4,
+    "pass": 1,
+    "fail": 3,
+    "error": 0,
+    "missing": 0,
+    "recorded": 4,
+    "complete": true,
+    "assertions": 12,
+    "assertions_passed": 7,
+    "reviewed": 1,
+    "review_failed": 1
+  },
+  "known_literal_failure_ids": [
+    4,
+    9,
+    76
+  ],
+  "known_semantic_blind_spot_id": 31,
+  "live_replay_summary": {
+    "total": 138,
+    "pass": 81,
+    "fail": 57,
+    "error": 0,
+    "missing": 0,
+    "recorded": 138,
+    "complete": true,
+    "assertions": 424,
+    "assertions_passed": 321,
+    "reviewed": 0,
+    "review_failed": 0
+  },
+  "live_capture_sha256": "fdb076c886d8f1025d48042016db0330dbd10822eceaa3d06a371ee314e06a13",
+  "reported_model_cost_usd": 1.477029
+}

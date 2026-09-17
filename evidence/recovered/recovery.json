@@ -1,0 +1,23 @@
+{
+  "original_path": "evidence/live/transcripts.jsonl",
+  "original_sha256": "9c68df39da103b4bfa4968b2dc1f77433e9e9568e6478208441b67203af899e6",
+  "retry_path": "evidence/retry-135/transcripts.jsonl",
+  "retry_sha256": "ec0d8961c1bf6a5426c8b391ee080c2f1b8394a735ab89a5eef409bce58831da",
+  "replacement_ids": [
+    135
+  ],
+  "policy": "infrastructure-errors-only; identical request and adapter",
+  "original_summary": {
+    "total": 138,
+    "pass": 80,
+    "fail": 57,
+    "error": 1,
+    "missing": 0,
+    "recorded": 138,
+    "complete": true,
+    "assertions": 424,
+    "assertions_passed": 318,
+    "reviewed": 0,
+    "review_failed": 0
+  }
+}

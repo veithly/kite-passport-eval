@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="Kite Passport literal assertions" tests="4" failures="4" errors="0" skipped="0"><properties><property name="scope" value="literal-transcript-checks" /><property name="suite_sha256" value="5a599dcb20a5611d06d30b20f7c47fdce3649318384a5489e19349b0335495f8" /><property name="onchain_verified" value="false" /><property name="provenance_kind" value="fixture" /></properties><testcase name="case-4" classname="authenticate-user" time="0.0"><failure message="Literal or semantic-review failure">Missing literal assertions: --client agent
+Semantic review: pending</failure><system-out>PASS kpass login init
+FAIL --client agent
+PASS --output json
+PASS --no-interactive</system-out></testcase><testcase name="case-9" classname="kite-discovery" time="0.0"><failure message="Literal or semantic-review failure">Missing literal assertions: ksearch service list
+Semantic review: pending</failure><system-out>FAIL ksearch service list
+PASS --query
+PASS --output json</system-out></testcase><testcase name="case-31" classname="request-session" time="0.0"><failure message="Literal or semantic-review failure">Missing literal assertions: 
+The upstream case requires one status check without --wait after explicit user approval. This deliberately reconstructed stale command passes positive literals but violates expected behavior.</failure><system-out>PASS kpass session status --request-id
+PASS --output json</system-out></testcase><testcase name="case-76" classname="seller-serve" time="0.0"><failure message="Literal or semantic-review failure">Missing literal assertions: kagent serve, --config, kite.config.yaml
+Semantic review: pending</failure><system-out>FAIL kagent serve
+FAIL --config
+FAIL kite.config.yaml</system-out></testcase></testsuite>

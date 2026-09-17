@@ -1,0 +1,4 @@
+{
+  "name": "claude-haiku-text-only",
+  "argv": ["python3", "adapters/claude_safe.py"]
+}

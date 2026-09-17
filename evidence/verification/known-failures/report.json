@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "suite_sha256": "5a599dcb20a5611d06d30b20f7c47fdce3649318384a5489e19349b0335495f8",
+  "scope": "literal-transcript-checks",
+  "onchain_verified": false,
+  "provenance_kind": "fixture",
+  "summary": {
+    "total": 4,
+    "pass": 1,
+    "fail": 3,
+    "error": 0,
+    "missing": 0,
+    "recorded": 4,
+    "complete": true,
+    "assertions": 12,
+    "assertions_passed": 7,
+    "reviewed": 1,
+    "review_failed": 1
+  },
+  "cases": [
+    {
+      "id": 4,
+      "prompt": "Log me in to Kite Passport",
+      "expected_output": "Agent runs setup.sh, then kpass login init --email <EMAIL> --client agent --output json --no-interactive, asks the user for the OTP code, then runs kpass login verify with KPASS_LOGIN_CODE",
+      "assertions": [
+        "kpass login init",
+        "--client agent",
+        "--output json",
+        "--no-interactive"
+      ],
+      "skill": "authenticate-user",
+      "status": "fail",
+      "checks": [
+        {
+          "literal": "kpass login init",
+          "passed": true,
+          "offset": 0,
+          "line": 1
+        },
+        {
+          "literal": "--client agent",
+          "passed": false,
+          "offset": null,
+          "line": null
+        },
+        {
+          "literal": "--output json",
+          "passed": true,
+          "offset": 33,
+          "line": 1
+        },
+        {
+          "literal": "--no-interactive",
+          "passed": true,
+          "offset": 47,
+          "line": 1
+        }
+      ],
+      "transcript": {
+        "adapter": "documented-regression-fixture",
+        "id": 4,
+        "kind": "fixture",
+        "prompt_sha256": "de4e9e565e15c7c5209e186a552422e9ed53c2d503c9b2b2f377c1eab7cca150",
+        "response": "kpass login init --email <EMAIL> --output json --no-interactive",
+        "response_sha256": "a942c24253979caaf46cac5f450e4c240c6efa774be26d11fd43026a01d851ce",
+        "schema_version": 1,
+        "status": "ok"
+      },
+      "review": null
+    },
+    {
+      "id": 9,
+      "prompt": "Find paid APIs for weather data",
+      "expected_output": "Agent runs setup-ksearch.sh, then ksearch service list --query weather --output json, and renders each service as a display card with name, summary, pricing, and base URL",
+      "assertions": [
+        "ksearch service list",
+        "--query",
+        "--output json"
+      ],
+      "skill": "kite-discovery",
+      "status": "fail",
+      "checks": [
+        {
+          "literal": "ksearch service list",
+          "passed": false,
+          "offset": null,
+          "line": null
+        },
+        {
+          "literal": "--query",
+          "passed": true,
+          "offset": 22,
+          "line": 1
+        },
+        {
+          "literal": "--output json",
+          "passed": true,
+          "offset": 38,
+          "line": 1
+        }
+      ],
+      "transcript": {
+        "adapter": "documented-regression-fixture",
+        "id": 9,
+        "kind": "fixture",
+        "prompt_sha256": "b4ca843e4b0bf3bb1330f58b126beca96e1fe538c1b559120e00158aada60d8f",
+        "response": "ksearch services list --query weather --output json",
+        "response_sha256": "17059877157ac838623ee507723b4b3aa582da6ad36d6ee3eda276ce2b8ff925",
+        "schema_version": 1,
+        "status": "ok"
+      },
+      "review": null
+    },
+    {
+      "id": 31,
+      "prompt": "I approved the session in my Passport app — is it active yet?",
+      "expected_output": "Agent runs kpass session status --request-id <REQUEST_ID> --output json -- a single check without --wait, since the user has already signaled approval -- and reports whether the session is now active",
+      "assertions": [
+        "kpass session status --request-id",
+        "--output json"
+      ],
+      "skill": "request-session",
+      "status": "pass",
+      "checks": [
+        {
+          "literal": "kpass session status --request-id",
+          "passed": true,
+          "offset": 0,
+          "line": 1
+        },
+        {
+          "literal": "--output json",
+          "passed": true,
+          "offset": 54,
+          "line": 1
+        }
+      ],
+      "transcript": {
+        "adapter": "documented-regression-fixture",
+        "id": 31,
+        "kind": "fixture",
+        "prompt_sha256": "69ac6f79dd7ac0f3280b4564e873d6ffb1cd6b133adc948627ed90ec5ed4c6d5",
+        "response": "kpass session status --request-id <REQUEST_ID> --wait --output json",
+        "response_sha256": "5b074435f71f1fc5600e57e98924c328768729bbb2a483d3cc451a8844ac1341",
+        "schema_version": 1,
+        "status": "ok"
+      },
+      "review": {
+        "id": 31,
+        "response_sha256": "5b074435f71f1fc5600e57e98924c328768729bbb2a483d3cc451a8844ac1341",
+        "verdict": "fail",
+        "reviewer": "documented fixture expectation (not a live audit)",
+        "quote": "--wait",
+        "rationale": "The upstream case requires one status check without --wait after explicit user approval. This deliberately reconstructed stale command passes positive literals but violates expected behavior."
+      }
+    },
+    {
+      "id": 76,
+      "prompt": "You're going to run as a live service that responds to deals in real time -- how should you start taking work?",
+      "expected_output": "Agent recommends running kagent serve --config kite.config.yaml --sweep-interval 30s from the seller directory. serve itself holds the platform stream and the signing key and runs the seller's own model for each item, so the seller writes no platform code and does not call kagent listen directly -- that CLI-driven path (seller-fulfill) is only for a seller that cannot keep a process running, already owns its own agent loop, or needs something the served brain can't express.",
+      "assertions": [
+        "kagent serve",
+        "--config",
+        "kite.config.yaml"
+      ],
+      "skill": "seller-serve",
+      "status": "fail",
+      "checks": [
+        {
+          "literal": "kagent serve",
+          "passed": false,
+          "offset": null,
+          "line": null
+        },
+        {
+          "literal": "--config",
+          "passed": false,
+          "offset": null,
+          "line": null
+        },
+        {
+          "literal": "kite.config.yaml",
+          "passed": false,
+          "offset": null,
+          "line": null
+        }
+      ],
+      "transcript": {
+        "adapter": "documented-regression-fixture",
+        "id": 76,
+        "kind": "fixture",
+        "prompt_sha256": "da7d4bd60461942f3e35cc3e4104052ec77c9e409ee0e3ce9fe33ef1db6df085",
+        "response": "kagent listen --forward ./handler.sh --output json",
+        "response_sha256": "d654b94d1d7c44b9f3e1d9c559ec56c9ab3c39c00345e96b6b2634795432e0e6",
+        "schema_version": 1,
+        "status": "ok"
+      },
+      "review": null
+    }
+  ],
+  "capture_sha256": "15f12eebe6223f49bbe0d347f8f82d43822b1dffee9be47447cae0867274251a",
+  "require_review": false,
+  "runner_version": "1.0.0",
+  "generated_at": "2026-09-17T05:13:38.629448+00:00",
+  "environment": {
+    "python": "3.9.6",
+    "platform": "darwin"
+  }
+}

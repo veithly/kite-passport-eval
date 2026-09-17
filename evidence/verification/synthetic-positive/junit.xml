@@ -1,0 +1,288 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="Kite Passport literal assertions" tests="138" failures="0" errors="0" skipped="0"><properties><property name="scope" value="literal-transcript-checks" /><property name="suite_sha256" value="ba8af9651ab014242790b39491dcf9137d6d3323cc8c0f94698099c7535b2f5b" /><property name="onchain_verified" value="false" /><property name="provenance_kind" value="fixture" /></properties><testcase name="case-1" classname="activity" time="0.0"><system-out>PASS kpass activity
+PASS --output json
+PASS ━━━</system-out></testcase><testcase name="case-2" classname="activity" time="0.0"><system-out>PASS kpass activity
+PASS --kind wallet_transfer
+PASS --output json</system-out></testcase><testcase name="case-3" classname="activity" time="0.0"><system-out>PASS kpass activity
+PASS --limit
+PASS --offset
+PASS --output json</system-out></testcase><testcase name="case-4" classname="authenticate-user" time="0.0"><system-out>PASS kpass login init
+PASS --client agent
+PASS --output json
+PASS --no-interactive</system-out></testcase><testcase name="case-5" classname="authenticate-user" time="0.0"><system-out>PASS kpass signup init
+PASS --client agent
+PASS --output json
+PASS --no-interactive</system-out></testcase><testcase name="case-6" classname="authenticate-user" time="0.0"><system-out>PASS kpass me
+PASS --output json</system-out></testcase><testcase name="case-7" classname="request-session" time="0.0"><system-out>PASS delegation
+PASS payment_policy
+PASS kpass session create
+PASS --output json</system-out></testcase><testcase name="case-8" classname="request-session" time="0.0"><system-out>PASS delegation
+PASS max_total_amount
+PASS kpass session create</system-out></testcase><testcase name="case-9" classname="kite-discovery" time="0.0"><system-out>PASS ksearch service list
+PASS --query
+PASS --output json</system-out></testcase><testcase name="case-10" classname="kite-discovery" time="0.0"><system-out>PASS ksearch service get
+PASS --output json</system-out></testcase><testcase name="case-11" classname="kite-discovery" time="0.0"><system-out>PASS ksearch service list
+PASS --output json
+PASS ━━━</system-out></testcase><testcase name="case-12" classname="manage-agents" time="0.0"><system-out>PASS kpass user agents
+PASS --output json</system-out></testcase><testcase name="case-13" classname="manage-agents" time="0.0"><system-out>PASS kpass user sessions
+PASS --status active
+PASS --output json</system-out></testcase><testcase name="case-14" classname="request-session" time="0.0"><system-out>PASS kpass agent:register
+PASS session create
+PASS --output json</system-out></testcase><testcase name="case-15" classname="request-session" time="0.0"><system-out>PASS session create
+PASS reuse_available
+PASS --output json</system-out></testcase><testcase name="case-16" classname="request-session" time="0.0"><system-out>PASS kpass session status --request-id
+PASS --output json</system-out></testcase><testcase name="case-17" classname="shopping" time="0.0"><system-out>PASS kpass shop:search
+PASS --output json
+PASS ━━━</system-out></testcase><testcase name="case-18" classname="shopping" time="0.0"><system-out>PASS kpass shop:cart
+PASS --output json</system-out></testcase><testcase name="case-19" classname="shopping" time="0.0"><system-out>PASS kpass shop:checkout
+PASS --output json</system-out></testcase><testcase name="case-20" classname="wallet-send" time="0.0"><system-out>PASS kpass wallet balance
+PASS --output json
+PASS ━━━</system-out></testcase><testcase name="case-21" classname="wallet-send" time="0.0"><system-out>PASS kpass wallet send
+PASS --to 0xabc123def456
+PASS --asset USDC
+PASS --amount 5
+PASS --output json</system-out></testcase><testcase name="case-22" classname="x402-execute" time="0.0"><system-out>PASS session execute
+PASS --url
+PASS --output json</system-out></testcase><testcase name="case-23" classname="x402-execute" time="0.0"><system-out>PASS session execute
+PASS --body
+PASS --output json</system-out></testcase><testcase name="case-24" classname="authenticate-user" time="0.0"><system-out>PASS kpass logout
+PASS --output json</system-out></testcase><testcase name="case-25" classname="authenticate-user" time="0.0"><system-out>PASS kpass signup init
+PASS --client agent
+PASS --no-interactive
+PASS --output json</system-out></testcase><testcase name="case-26" classname="authenticate-user" time="0.0"><system-out>PASS kpass login verify
+PASS login_id</system-out></testcase><testcase name="case-27" classname="wallet-send" time="0.0"><system-out>PASS kpass faucet drop
+PASS --recipient
+PASS --token USDC
+PASS --output json</system-out></testcase><testcase name="case-28" classname="wallet-send" time="0.0"><system-out>PASS kpass wallet send
+PASS --asset ETH
+PASS --amount 0.5
+PASS --output json</system-out></testcase><testcase name="case-29" classname="manage-agents" time="0.0"><system-out>PASS kpass user agents
+PASS --agent-type claude
+PASS --output json</system-out></testcase><testcase name="case-30" classname="manage-agents" time="0.0"><system-out>PASS kpass user sessions
+PASS --status active
+PASS --output json</system-out></testcase><testcase name="case-31" classname="request-session" time="0.0"><system-out>PASS kpass session status --request-id
+PASS --output json</system-out></testcase><testcase name="case-32" classname="request-session" time="0.0"><system-out>PASS kpass agent:register
+PASS --type claude
+PASS --output json</system-out></testcase><testcase name="case-33" classname="shopping" time="0.0"><system-out>PASS kpass shop:cart add
+PASS --provider
+PASS --external-id
+PASS --output json</system-out></testcase><testcase name="case-34" classname="shopping" time="0.0"><system-out>PASS kpass shop:cart remove
+PASS --provider
+PASS --external-id
+PASS --output json</system-out></testcase><testcase name="case-35" classname="shopping" time="0.0"><system-out>PASS kpass shop:cart clear
+PASS --output json</system-out></testcase><testcase name="case-36" classname="shopping" time="0.0"><system-out>PASS kpass shop:shipping update
+PASS --line1
+PASS --city
+PASS --postal
+PASS --output json</system-out></testcase><testcase name="case-37" classname="shopping" time="0.0"><system-out>PASS kpass shop:order status
+PASS --order-id
+PASS --output json</system-out></testcase><testcase name="case-38" classname="kite-discovery" time="0.0"><system-out>PASS ksearch service list
+PASS --asset USDC
+PASS --output json</system-out></testcase><testcase name="case-39" classname="kite-discovery" time="0.0"><system-out>PASS ksearch service list
+PASS --cursor
+PASS --output json</system-out></testcase><testcase name="case-40" classname="kite-discovery" time="0.0"><system-out>PASS ksearch service health
+PASS --output json</system-out></testcase><testcase name="case-41" classname="x402-execute" time="0.0"><system-out>PASS session execute
+PASS --method PUT
+PASS --body
+PASS --output json</system-out></testcase><testcase name="case-42" classname="x402-execute" time="0.0"><system-out>PASS session execute
+PASS --headers
+PASS X-Api-Version
+PASS --output json</system-out></testcase><testcase name="case-43" classname="x402-execute" time="0.0"><system-out>PASS x402.status_code
+PASS 404</system-out></testcase><testcase name="case-44" classname="request-session" time="0.0"><system-out>PASS kpass session list --status active
+PASS spent_total
+PASS max_total_amount
+PASS --output json</system-out></testcase><testcase name="case-45" classname="request-session" time="0.0"><system-out>PASS curl
+PASS api.payments.xyz
+PASS payment_policy
+PASS max_amount_per_tx</system-out></testcase><testcase name="case-46" classname="request-session" time="0.0"><system-out>PASS session create
+PASS --output json</system-out></testcase><testcase name="case-47" classname="x402-execute" time="0.0"><system-out>PASS kpass activity
+PASS --kind x402_payment
+PASS --output json</system-out></testcase><testcase name="case-48" classname="shopping" time="0.0"><system-out>PASS kpass activity
+PASS --kind shopping_checkout
+PASS --output json
+PASS --offset</system-out></testcase><testcase name="case-49" classname="kite-discovery" time="0.0"><system-out>PASS ksearch service list
+PASS --query
+PASS ksearch service get
+PASS service_id
+PASS --output json</system-out></testcase><testcase name="case-50" classname="shopping" time="0.0"><system-out>PASS kpass shop:cart add
+PASS shop:checkout
+PASS --confirmed
+PASS --output json</system-out></testcase><testcase name="case-51" classname="request-session" time="0.0"><system-out>PASS kpass session create
+PASS --delegation
+PASS max_amount_per_tx
+PASS max_total_amount
+PASS --output json</system-out></testcase><testcase name="case-52" classname="request-session" time="0.0"><system-out>PASS kpass session create
+PASS --delegation
+PASS max_amount_per_tx
+PASS max_total_amount
+PASS --output json</system-out></testcase><testcase name="case-53" classname="attach-session" time="0.0"><system-out>PASS kpass session attach
+PASS --session-id session_dash7788
+PASS --output json
+PASS human_action_required
+PASS kpass session status --request-id
+PASS --wait
+PASS Session Attached</system-out></testcase><testcase name="case-54" classname="attach-session" time="0.0"><system-out>PASS kpass session attach
+PASS session_not_attachable
+PASS request-session</system-out></testcase><testcase name="case-55" classname="attach-session" time="0.0"><system-out>PASS kpass session attach
+PASS agent_not_same_owner
+PASS --output json</system-out></testcase><testcase name="case-56" classname="wallet-send" time="0.0"><system-out>PASS kpass wallet address
+PASS --chain base
+PASS --output json
+PASS Gas is sponsored
+PASS USDC only
+PASS do not send ETH</system-out></testcase><testcase name="case-57" classname="buyer-agent-setup" time="0.0"><system-out>PASS kpass agent init
+PASS --output json
+PASS thumbprint</system-out></testcase><testcase name="case-58" classname="buyer-agent-setup" time="0.0"><system-out>PASS kpass agent token create --agent did:kite:acme-buyer-01
+PASS kpass agent bind --agent did:kite:acme-buyer-01 --token
+PASS active</system-out></testcase><testcase name="case-59" classname="buyer-agent-setup" time="0.0"><system-out>PASS kpass agent status
+PASS --output json
+PASS binding.status</system-out></testcase><testcase name="case-60" classname="buyer-agent-setup" time="0.0"><system-out>PASS runtime_agent_mismatch
+PASS different agent
+PASS ask rather than</system-out></testcase><testcase name="case-61" classname="seller-agent-setup" time="0.0"><system-out>PASS kagent init
+PASS --output json
+PASS thumbprint</system-out></testcase><testcase name="case-62" classname="seller-agent-setup" time="0.0"><system-out>PASS kpass agent token create --agent did:kite:acme-seller-01
+PASS kagent bind --agent did:kite:acme-seller-01 --token
+PASS active</system-out></testcase><testcase name="case-63" classname="seller-agent-setup" time="0.0"><system-out>PASS kagent card fetch --pin
+PASS kagent card publish --file
+PASS card_hash_verified</system-out></testcase><testcase name="case-64" classname="seller-agent-setup" time="0.0"><system-out>PASS registration template
+PASS registration validate
+PASS registration publish
+PASS --storefront
+PASS --rate-card
+PASS --workflow-terms</system-out></testcase><testcase name="case-65" classname="seller-fulfill" time="0.0"><system-out>PASS acceptance_policy_violation
+PASS set its acceptance policy
+PASS owner action</system-out></testcase><testcase name="case-66" classname="seller-agent-setup" time="0.0"><system-out>PASS card_hash_verified
+PASS PUBLISHED, BUT THE HASH COULD NOT BE CONFIRMED
+PASS buyers verify this hash</system-out></testcase><testcase name="case-67" classname="buyer-find-seller" time="0.0"><system-out>PASS ksearch find
+PASS --output json
+PASS rewrite_applied
+PASS verified_tier</system-out></testcase><testcase name="case-68" classname="buyer-find-seller" time="0.0"><system-out>PASS ksearch agent offerings
+PASS --offering-kind dataset
+PASS --max-total-price-minor
+PASS --ready</system-out></testcase><testcase name="case-69" classname="buyer-find-seller" time="0.0"><system-out>PASS ksearch agent card did:kite:example-seller
+PASS card_hash_verified
+PASS exit 8</system-out></testcase><testcase name="case-70" classname="buyer-find-seller" time="0.0"><system-out>PASS ksearch agent keys
+PASS active_count
+PASS --seller-key-id</system-out></testcase><testcase name="case-71" classname="buyer-find-seller" time="0.0"><system-out>PASS kpass agent card fetch --pin
+PASS chain_context_complete</system-out></testcase><testcase name="case-72" classname="seller-fulfill" time="0.0"><system-out>PASS kagent agreement status --agreement-id agr_7f2a
+PASS kagent agreement accept --agreement-id agr_7f2a
+PASS --output json</system-out></testcase><testcase name="case-73" classname="seller-fulfill" time="0.0"><system-out>PASS acceptance_policy_violation
+PASS kagent escalate
+PASS --kind acceptance-override
+PASS approval_url</system-out></testcase><testcase name="case-74" classname="seller-fulfill" time="0.0"><system-out>PASS kagent agreement funding get --agreement-id agr_7f2a
+PASS activation_signable
+PASS kagent agreement funding sign --agreement-id agr_7f2a</system-out></testcase><testcase name="case-75" classname="seller-fulfill" time="0.0"><system-out>PASS kagent agreement deliver --agreement-id agr_7f2a --file
+PASS not funded
+PASS NOT uploaded</system-out></testcase><testcase name="case-76" classname="seller-serve" time="0.0"><system-out>PASS kagent serve
+PASS --config
+PASS kite.config.yaml</system-out></testcase><testcase name="case-77" classname="seller-fulfill" time="0.0"><system-out>PASS kagent message send --to
+PASS --body
+PASS --idempotency-key</system-out></testcase><testcase name="case-78" classname="buyer-purchase" time="0.0"><system-out>PASS kpass agent agreement propose --seller did:kite:example-seller
+PASS --terms-file
+PASS registrationBasis</system-out></testcase><testcase name="case-79" classname="buyer-purchase" time="0.0"><system-out>PASS kpass agent session request --agreement-id agr_123
+PASS --max-amount-per-tx
+PASS --max-total-amount
+PASS approval_url</system-out></testcase><testcase name="case-80" classname="buyer-purchase" time="0.0"><system-out>PASS kpass agent fund --agreement-id agr_123
+PASS funding_submission_incomplete
+PASS identical command</system-out></testcase><testcase name="case-81" classname="buyer-purchase" time="0.0"><system-out>PASS agreement proofs --agreement-id agr_123 --verify
+PASS deliveryHash
+PASS sha256</system-out></testcase><testcase name="case-82" classname="buyer-purchase" time="0.0"><system-out>PASS kpass agent agreement reject --agreement-id agr_123
+PASS --reason-code delivery-hash-mismatch</system-out></testcase><testcase name="case-83" classname="buyer-purchase" time="0.0"><system-out>PASS kpass agent agreement review --agreement-id agr_123
+PASS --rating
+PASS --output json</system-out></testcase><testcase name="case-84" classname="upgrade-passport" time="0.0"><system-out>PASS kpass upgrade --output json
+PASS no permission prompt
+PASS bundle 22</system-out></testcase><testcase name="case-85" classname="upgrade-passport" time="0.0"><system-out>PASS KPASS_AUTO_UPGRADE=0
+PASS ask before running
+PASS kpass upgrade</system-out></testcase><testcase name="case-86" classname="upgrade-passport" time="0.0"><system-out>PASS KPASS_NO_UPDATE_CHECK=1
+PASS update_available
+PASS kpass upgrade --check</system-out></testcase><testcase name="case-87" classname="upgrade-passport" time="0.0"><system-out>PASS kpass upgrade --check --output json
+PASS kpass upgrade --output json
+PASS up to date</system-out></testcase><testcase name="case-88" classname="upgrade-passport" time="0.0"><system-out>PASS irm https://cli.gokite.ai/install.ps1 | iex
+PASS I can't run it for you on Windows
+PASS PowerShell</system-out></testcase><testcase name="case-89" classname="kite-passport" time="0.0"><system-out>PASS kite-discovery
+PASS image generation
+PASS cannot produce locally</system-out></testcase><testcase name="case-90" classname="kite-passport" time="0.0"><system-out>PASS wallet-send
+PASS no spending session
+PASS wallet</system-out></testcase><testcase name="case-91" classname="kite-passport" time="0.0"><system-out>PASS ASCII
+PASS no paid service
+PASS produces it directly</system-out></testcase><testcase name="case-92" classname="kite-passport" time="0.0"><system-out>PASS kite-discovery
+PASS exchange rate
+PASS real-time</system-out></testcase><testcase name="case-93" classname="seller-serve" time="0.0"><system-out>PASS kagent serve --config
+PASS the cwd IS the configuration
+PASS kite.config.yaml</system-out></testcase><testcase name="case-94" classname="seller-serve" time="0.0"><system-out>PASS one executable path
+PASS wrapper script
+PASS AGENT_MAX_TURNS</system-out></testcase><testcase name="case-95" classname="seller-serve" time="0.0"><system-out>PASS seller-agent-setup
+PASS active binding
+PASS seller-fulfill</system-out></testcase><testcase name="case-96" classname="seller-serve" time="0.0"><system-out>PASS out/active-registration.json
+PASS kagent registration get --output json
+PASS cannot quote right now</system-out></testcase><testcase name="case-97" classname="seller-serve" time="0.0"><system-out>PASS seller-acceptance
+PASS .claude/skills/
+PASS escalates every proposal to the owner</system-out></testcase><testcase name="case-98" classname="kite-seller" time="0.0"><system-out>PASS agent-delivery
+PASS exactly ONE JSON object
+PASS no shell</system-out></testcase><testcase name="case-99" classname="kite-seller" time="0.0"><system-out>PASS out/active-registration.json
+PASS priceSchedule
+PASS requiredBeforeDeliveryMinor</system-out></testcase><testcase name="case-100" classname="kite-seller" time="0.0"><system-out>PASS out/quotes/used
+PASS unconsumed
+PASS the same work, not merely the same money</system-out></testcase><testcase name="case-101" classname="kite-seller" time="0.0"><system-out>PASS dispute
+PASS undesigned
+PASS escalates it to the owner</system-out></testcase><testcase name="case-102" classname="seller-onboarding" time="0.0"><system-out>PASS seller-onboarding
+PASS phase
+PASS public name</system-out></testcase><testcase name="case-103" classname="seller-onboarding" time="0.0"><system-out>PASS resume
+PASS live</system-out></testcase><testcase name="case-104" classname="seller-onboarding" time="0.0"><system-out>PASS UID
+PASS permanent</system-out></testcase><testcase name="case-105" classname="seller-onboarding" time="0.0"><system-out>PASS propose
+PASS advertise
+PASS model-visible</system-out></testcase><testcase name="case-106" classname="seller-onboarding" time="0.0"><system-out>PASS recruiting/v1
+PASS silence
+PASS confirm</system-out></testcase><testcase name="case-107" classname="seller-onboarding" time="0.0"><system-out>PASS dashboard
+PASS reserve
+PASS confirm</system-out></testcase><testcase name="case-108" classname="seller-onboarding" time="0.0"><system-out>PASS 35000000
+PASS reserve
+PASS explicit</system-out></testcase><testcase name="case-109" classname="kite-seller" time="0.0"><system-out>PASS seller-acceptance
+PASS request</system-out></testcase><testcase name="case-110" classname="kite-seller" time="0.0"><system-out>PASS seller-acceptance
+PASS rejected
+PASS consent-refund</system-out></testcase><testcase name="case-111" classname="seller-onboarding" time="0.0"><system-out>PASS fail-closed
+PASS refuse</system-out></testcase><testcase name="case-112" classname="seller-onboarding" time="0.0"><system-out>PASS kagent serve
+PASS does not run</system-out></testcase><testcase name="case-113" classname="seller-onboarding" time="0.0"><system-out>PASS Playground
+PASS GOK-1272</system-out></testcase><testcase name="case-114" classname="seller-onboarding" time="0.0"><system-out>PASS standard/v1
+PASS confirm</system-out></testcase><testcase name="case-115" classname="seller-onboarding" time="0.0"><system-out>PASS pending
+PASS fail-closed</system-out></testcase><testcase name="case-116" classname="seller-onboarding" time="0.0"><system-out>PASS identifier claim
+PASS owner
+PASS card fetch --pin</system-out></testcase><testcase name="case-117" classname="seller-onboarding" time="0.0"><system-out>PASS pending
+PASS dashboard</system-out></testcase><testcase name="case-118" classname="seller-onboarding" time="0.0"><system-out>PASS checkpoint
+PASS compare</system-out></testcase><testcase name="case-119" classname="seller-onboarding" time="0.0"><system-out>PASS fixed/v1
+PASS --expected-revision
+PASS directory workflow</system-out></testcase><testcase name="case-120" classname="seller-onboarding" time="0.0"><system-out>PASS negotiated/v1
+PASS totalBounds
+PASS out/active-registration.json</system-out></testcase><testcase name="case-121" classname="seller-onboarding" time="0.0"><system-out>PASS details.problems
+PASS card fetch --pin</system-out></testcase><testcase name="case-122" classname="seller-onboarding" time="0.0"><system-out>PASS serve --config
+PASS 6.6.0
+PASS does not run</system-out></testcase><testcase name="case-123" classname="seller-onboarding" time="0.0"><system-out>PASS .claude/skills
+PASS README</system-out></testcase><testcase name="case-124" classname="seller-onboarding" time="0.0"><system-out>PASS unlisted
+PASS directory search
+PASS card_hash_verified</system-out></testcase><testcase name="case-125" classname="seller-onboarding" time="0.0"><system-out>PASS resume
+PASS serve</system-out></testcase><testcase name="case-126" classname="seller-onboarding" time="0.0"><system-out>PASS readiness
+PASS workflowHash
+PASS directory workflow</system-out></testcase><testcase name="case-127" classname="seller-onboarding" time="0.0"><system-out>PASS card_hash_verified
+PASS stop</system-out></testcase><testcase name="case-128" classname="seller-onboarding" time="0.0"><system-out>PASS USDC
+PASS operator
+PASS CAIP-19</system-out></testcase><testcase name="case-129" classname="seller-onboarding" time="0.0"><system-out>PASS silence
+PASS DEFAULT
+PASS confirm</system-out></testcase><testcase name="case-130" classname="seller-onboarding" time="0.0"><system-out>PASS appeal
+PASS revise
+PASS REJECTED</system-out></testcase><testcase name="case-131" classname="seller-onboarding" time="0.0"><system-out>PASS onboarding_status
+PASS identifier_already_claimed
+PASS owner</system-out></testcase><testcase name="case-132" classname="seller-onboarding" time="0.0"><system-out>PASS pending
+PASS dashboard
+PASS not re</system-out></testcase><testcase name="case-133" classname="seller-onboarding" time="0.0"><system-out>PASS redacted
+PASS placeholder
+PASS onboarding status</system-out></testcase><testcase name="case-134" classname="seller-onboarding" time="0.0"><system-out>PASS model
+PASS cannot guarantee
+PASS deterministic</system-out></testcase><testcase name="case-135" classname="seller-onboarding" time="0.0"><system-out>PASS roll-forward-only
+PASS author card
+PASS authorization</system-out></testcase><testcase name="case-136" classname="seller-onboarding" time="0.0"><system-out>PASS directory search
+PASS sufficient
+PASS optional</system-out></testcase><testcase name="case-137" classname="seller-onboarding" time="0.0"><system-out>PASS sha256sum
+PASS 64-hex
+PASS first</system-out></testcase><testcase name="case-138" classname="seller-onboarding" time="0.0"><system-out>PASS registration/prev
+PASS before phase 3
+PASS author card</system-out></testcase></testsuite>

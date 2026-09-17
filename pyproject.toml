@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kite-passport-eval"
+version = "1.0.0"
+description = "Auditable, zero-runtime-dependency evaluation runner for Kite Passport Skills"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "Rick", email = "6553213+veithly@users.noreply.github.com"}]
+
+[project.scripts]
+kite-eval = "kite_eval.__main__:main"
+
+[tool.setuptools]
+packages = ["kite_eval"]
+
+[tool.setuptools.package-data]
+kite_eval = ["assets/*.css", "assets/*.js"]

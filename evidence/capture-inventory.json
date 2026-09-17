@@ -1,0 +1,527 @@
+{
+  "summary": {
+    "total": 138,
+    "pass": 81,
+    "fail": 57,
+    "error": 0,
+    "missing": 0,
+    "recorded": 138,
+    "complete": true,
+    "assertions": 424,
+    "assertions_passed": 321,
+    "reviewed": 0,
+    "review_failed": 0
+  },
+  "models": {
+    "claude-haiku-4-5": 138
+  },
+  "reported_cost_usd": 1.477029,
+  "secret_pattern_warnings": [],
+  "privacy_note": "Pattern scan only; not a guarantee of absence of sensitive information.",
+  "adapter_sha256": "89e4a186e15bfdb68123ad00b5523329d1276dad73a296efc33b9c68e3120416",
+  "source_report_sha256": "3cf3ee8cbb7d76a20aba99bfce2fd577da8dead2330e6b0aca406971e6e4d76a",
+  "failures": [
+    {
+      "id": 1,
+      "skill": "activity",
+      "status": "fail",
+      "missing_literals": [
+        "━━━"
+      ]
+    },
+    {
+      "id": 4,
+      "skill": "authenticate-user",
+      "status": "fail",
+      "missing_literals": [
+        "kpass login init",
+        "--client agent",
+        "--output json",
+        "--no-interactive"
+      ]
+    },
+    {
+      "id": 5,
+      "skill": "authenticate-user",
+      "status": "fail",
+      "missing_literals": [
+        "kpass signup init",
+        "--client agent",
+        "--output json",
+        "--no-interactive"
+      ]
+    },
+    {
+      "id": 6,
+      "skill": "authenticate-user",
+      "status": "fail",
+      "missing_literals": [
+        "kpass me",
+        "--output json"
+      ]
+    },
+    {
+      "id": 7,
+      "skill": "request-session",
+      "status": "fail",
+      "missing_literals": [
+        "payment_policy",
+        "kpass session create"
+      ]
+    },
+    {
+      "id": 9,
+      "skill": "kite-discovery",
+      "status": "fail",
+      "missing_literals": [
+        "ksearch service list",
+        "--query",
+        "--output json"
+      ]
+    },
+    {
+      "id": 11,
+      "skill": "kite-discovery",
+      "status": "fail",
+      "missing_literals": [
+        "━━━"
+      ]
+    },
+    {
+      "id": 14,
+      "skill": "request-session",
+      "status": "fail",
+      "missing_literals": [
+        "session create"
+      ]
+    },
+    {
+      "id": 15,
+      "skill": "request-session",
+      "status": "fail",
+      "missing_literals": [
+        "session create",
+        "reuse_available",
+        "--output json"
+      ]
+    },
+    {
+      "id": 17,
+      "skill": "shopping",
+      "status": "fail",
+      "missing_literals": [
+        "━━━"
+      ]
+    },
+    {
+      "id": 19,
+      "skill": "shopping",
+      "status": "fail",
+      "missing_literals": [
+        "kpass shop:checkout"
+      ]
+    },
+    {
+      "id": 20,
+      "skill": "wallet-send",
+      "status": "fail",
+      "missing_literals": [
+        "━━━"
+      ]
+    },
+    {
+      "id": 21,
+      "skill": "wallet-send",
+      "status": "fail",
+      "missing_literals": [
+        "kpass wallet send",
+        "--to 0xabc123def456",
+        "--asset USDC",
+        "--amount 5",
+        "--output json"
+      ]
+    },
+    {
+      "id": 28,
+      "skill": "wallet-send",
+      "status": "fail",
+      "missing_literals": [
+        "--asset ETH"
+      ]
+    },
+    {
+      "id": 33,
+      "skill": "shopping",
+      "status": "fail",
+      "missing_literals": [
+        "kpass shop:cart add",
+        "--provider",
+        "--external-id"
+      ]
+    },
+    {
+      "id": 34,
+      "skill": "shopping",
+      "status": "fail",
+      "missing_literals": [
+        "kpass shop:cart remove",
+        "--provider",
+        "--external-id"
+      ]
+    },
+    {
+      "id": 35,
+      "skill": "shopping",
+      "status": "fail",
+      "missing_literals": [
+        "kpass shop:cart clear"
+      ]
+    },
+    {
+      "id": 39,
+      "skill": "kite-discovery",
+      "status": "fail",
+      "missing_literals": [
+        "ksearch service list",
+        "--cursor",
+        "--output json"
+      ]
+    },
+    {
+      "id": 45,
+      "skill": "request-session",
+      "status": "fail",
+      "missing_literals": [
+        "payment_policy",
+        "max_amount_per_tx"
+      ]
+    },
+    {
+      "id": 46,
+      "skill": "request-session",
+      "status": "fail",
+      "missing_literals": [
+        "session create",
+        "--output json"
+      ]
+    },
+    {
+      "id": 47,
+      "skill": "x402-execute",
+      "status": "fail",
+      "missing_literals": [
+        "kpass activity",
+        "--kind x402_payment"
+      ]
+    },
+    {
+      "id": 48,
+      "skill": "shopping",
+      "status": "fail",
+      "missing_literals": [
+        "kpass activity",
+        "--kind shopping_checkout",
+        "--offset"
+      ]
+    },
+    {
+      "id": 50,
+      "skill": "shopping",
+      "status": "fail",
+      "missing_literals": [
+        "kpass shop:cart add",
+        "shop:checkout",
+        "--confirmed"
+      ]
+    },
+    {
+      "id": 51,
+      "skill": "request-session",
+      "status": "fail",
+      "missing_literals": [
+        "kpass session create",
+        "--delegation",
+        "max_amount_per_tx",
+        "max_total_amount"
+      ]
+    },
+    {
+      "id": 60,
+      "skill": "buyer-agent-setup",
+      "status": "fail",
+      "missing_literals": [
+        "different agent",
+        "ask rather than"
+      ]
+    },
+    {
+      "id": 61,
+      "skill": "seller-agent-setup",
+      "status": "fail",
+      "missing_literals": [
+        "kagent init",
+        "--output json",
+        "thumbprint"
+      ]
+    },
+    {
+      "id": 62,
+      "skill": "seller-agent-setup",
+      "status": "fail",
+      "missing_literals": [
+        "kagent bind --agent did:kite:acme-seller-01 --token"
+      ]
+    },
+    {
+      "id": 65,
+      "skill": "seller-fulfill",
+      "status": "fail",
+      "missing_literals": [
+        "set its acceptance policy",
+        "owner action"
+      ]
+    },
+    {
+      "id": 66,
+      "skill": "seller-agent-setup",
+      "status": "fail",
+      "missing_literals": [
+        "buyers verify this hash"
+      ]
+    },
+    {
+      "id": 69,
+      "skill": "buyer-find-seller",
+      "status": "fail",
+      "missing_literals": [
+        "exit 8"
+      ]
+    },
+    {
+      "id": 75,
+      "skill": "seller-fulfill",
+      "status": "fail",
+      "missing_literals": [
+        "NOT uploaded"
+      ]
+    },
+    {
+      "id": 77,
+      "skill": "seller-fulfill",
+      "status": "fail",
+      "missing_literals": [
+        "kagent message send --to"
+      ]
+    },
+    {
+      "id": 78,
+      "skill": "buyer-purchase",
+      "status": "fail",
+      "missing_literals": [
+        "kpass agent agreement propose --seller did:kite:example-seller"
+      ]
+    },
+    {
+      "id": 79,
+      "skill": "buyer-purchase",
+      "status": "fail",
+      "missing_literals": [
+        "kpass agent session request --agreement-id agr_123"
+      ]
+    },
+    {
+      "id": 82,
+      "skill": "buyer-purchase",
+      "status": "fail",
+      "missing_literals": [
+        "kpass agent agreement reject --agreement-id agr_123"
+      ]
+    },
+    {
+      "id": 83,
+      "skill": "buyer-purchase",
+      "status": "fail",
+      "missing_literals": [
+        "kpass agent agreement review --agreement-id agr_123"
+      ]
+    },
+    {
+      "id": 85,
+      "skill": "upgrade-passport",
+      "status": "fail",
+      "missing_literals": [
+        "ask before running"
+      ]
+    },
+    {
+      "id": 89,
+      "skill": "kite-passport",
+      "status": "fail",
+      "missing_literals": [
+        "kite-discovery",
+        "cannot produce locally"
+      ]
+    },
+    {
+      "id": 91,
+      "skill": "kite-passport",
+      "status": "fail",
+      "missing_literals": [
+        "no paid service",
+        "produces it directly"
+      ]
+    },
+    {
+      "id": 92,
+      "skill": "kite-passport",
+      "status": "fail",
+      "missing_literals": [
+        "real-time"
+      ]
+    },
+    {
+      "id": 93,
+      "skill": "seller-serve",
+      "status": "fail",
+      "missing_literals": [
+        "the cwd IS the configuration"
+      ]
+    },
+    {
+      "id": 94,
+      "skill": "seller-serve",
+      "status": "fail",
+      "missing_literals": [
+        "one executable path",
+        "AGENT_MAX_TURNS"
+      ]
+    },
+    {
+      "id": 97,
+      "skill": "seller-serve",
+      "status": "fail",
+      "missing_literals": [
+        "escalates every proposal to the owner"
+      ]
+    },
+    {
+      "id": 98,
+      "skill": "kite-seller",
+      "status": "fail",
+      "missing_literals": [
+        "agent-delivery",
+        "exactly ONE JSON object",
+        "no shell"
+      ]
+    },
+    {
+      "id": 100,
+      "skill": "kite-seller",
+      "status": "fail",
+      "missing_literals": [
+        "out/quotes/used",
+        "unconsumed",
+        "the same work, not merely the same money"
+      ]
+    },
+    {
+      "id": 102,
+      "skill": "seller-onboarding",
+      "status": "fail",
+      "missing_literals": [
+        "seller-onboarding",
+        "phase",
+        "public name"
+      ]
+    },
+    {
+      "id": 105,
+      "skill": "seller-onboarding",
+      "status": "fail",
+      "missing_literals": [
+        "propose"
+      ]
+    },
+    {
+      "id": 106,
+      "skill": "seller-onboarding",
+      "status": "fail",
+      "missing_literals": [
+        "recruiting/v1",
+        "silence"
+      ]
+    },
+    {
+      "id": 110,
+      "skill": "kite-seller",
+      "status": "fail",
+      "missing_literals": [
+        "consent-refund"
+      ]
+    },
+    {
+      "id": 115,
+      "skill": "seller-onboarding",
+      "status": "fail",
+      "missing_literals": [
+        "fail-closed"
+      ]
+    },
+    {
+      "id": 116,
+      "skill": "seller-onboarding",
+      "status": "fail",
+      "missing_literals": [
+        "card fetch --pin"
+      ]
+    },
+    {
+      "id": 122,
+      "skill": "seller-onboarding",
+      "status": "fail",
+      "missing_literals": [
+        "does not run"
+      ]
+    },
+    {
+      "id": 129,
+      "skill": "seller-onboarding",
+      "status": "fail",
+      "missing_literals": [
+        "DEFAULT"
+      ]
+    },
+    {
+      "id": 132,
+      "skill": "seller-onboarding",
+      "status": "fail",
+      "missing_literals": [
+        "not re"
+      ]
+    },
+    {
+      "id": 133,
+      "skill": "seller-onboarding",
+      "status": "fail",
+      "missing_literals": [
+        "redacted"
+      ]
+    },
+    {
+      "id": 134,
+      "skill": "seller-onboarding",
+      "status": "fail",
+      "missing_literals": [
+        "cannot guarantee"
+      ]
+    },
+    {
+      "id": 136,
+      "skill": "seller-onboarding",
+      "status": "fail",
+      "missing_literals": [
+        "sufficient"
+      ]
+    }
+  ]
+}

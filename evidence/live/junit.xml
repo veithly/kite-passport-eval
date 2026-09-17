@@ -1,0 +1,345 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="Kite Passport literal assertions" tests="138" failures="57" errors="1" skipped="0"><properties><property name="scope" value="literal-transcript-checks" /><property name="suite_sha256" value="ba8af9651ab014242790b39491dcf9137d6d3323cc8c0f94698099c7535b2f5b" /><property name="onchain_verified" value="false" /><property name="provenance_kind" value="agent" /></properties><testcase name="case-1" classname="activity" time="5.193"><failure message="Literal or semantic-review failure">Missing literal assertions: ━━━
+Semantic review: pending</failure><system-out>PASS kpass activity
+PASS --output json
+FAIL ━━━</system-out></testcase><testcase name="case-2" classname="activity" time="5.513"><system-out>PASS kpass activity
+PASS --kind wallet_transfer
+PASS --output json</system-out></testcase><testcase name="case-3" classname="activity" time="4.844"><system-out>PASS kpass activity
+PASS --limit
+PASS --offset
+PASS --output json</system-out></testcase><testcase name="case-4" classname="authenticate-user" time="4.635"><failure message="Literal or semantic-review failure">Missing literal assertions: kpass login init, --client agent, --output json, --no-interactive
+Semantic review: pending</failure><system-out>FAIL kpass login init
+FAIL --client agent
+FAIL --output json
+FAIL --no-interactive</system-out></testcase><testcase name="case-5" classname="authenticate-user" time="4.391"><failure message="Literal or semantic-review failure">Missing literal assertions: kpass signup init, --client agent, --output json, --no-interactive
+Semantic review: pending</failure><system-out>FAIL kpass signup init
+FAIL --client agent
+FAIL --output json
+FAIL --no-interactive</system-out></testcase><testcase name="case-6" classname="authenticate-user" time="4.774"><failure message="Literal or semantic-review failure">Missing literal assertions: kpass me, --output json
+Semantic review: pending</failure><system-out>FAIL kpass me
+FAIL --output json</system-out></testcase><testcase name="case-7" classname="request-session" time="9.0"><failure message="Literal or semantic-review failure">Missing literal assertions: payment_policy, kpass session create
+Semantic review: pending</failure><system-out>PASS delegation
+FAIL payment_policy
+FAIL kpass session create
+PASS --output json</system-out></testcase><testcase name="case-8" classname="request-session" time="13.765"><system-out>PASS delegation
+PASS max_total_amount
+PASS kpass session create</system-out></testcase><testcase name="case-9" classname="kite-discovery" time="2.166"><failure message="Literal or semantic-review failure">Missing literal assertions: ksearch service list, --query, --output json
+Semantic review: pending</failure><system-out>FAIL ksearch service list
+FAIL --query
+FAIL --output json</system-out></testcase><testcase name="case-10" classname="kite-discovery" time="5.638"><system-out>PASS ksearch service get
+PASS --output json</system-out></testcase><testcase name="case-11" classname="kite-discovery" time="2.208"><failure message="Literal or semantic-review failure">Missing literal assertions: ━━━
+Semantic review: pending</failure><system-out>PASS ksearch service list
+PASS --output json
+FAIL ━━━</system-out></testcase><testcase name="case-12" classname="manage-agents" time="4.469"><system-out>PASS kpass user agents
+PASS --output json</system-out></testcase><testcase name="case-13" classname="manage-agents" time="5.627"><system-out>PASS kpass user sessions
+PASS --status active
+PASS --output json</system-out></testcase><testcase name="case-14" classname="request-session" time="4.708"><failure message="Literal or semantic-review failure">Missing literal assertions: session create
+Semantic review: pending</failure><system-out>PASS kpass agent:register
+FAIL session create
+PASS --output json</system-out></testcase><testcase name="case-15" classname="request-session" time="2.09"><failure message="Literal or semantic-review failure">Missing literal assertions: session create, reuse_available, --output json
+Semantic review: pending</failure><system-out>FAIL session create
+FAIL reuse_available
+FAIL --output json</system-out></testcase><testcase name="case-16" classname="request-session" time="13.147"><system-out>PASS kpass session status --request-id
+PASS --output json</system-out></testcase><testcase name="case-17" classname="shopping" time="3.807"><failure message="Literal or semantic-review failure">Missing literal assertions: ━━━
+Semantic review: pending</failure><system-out>PASS kpass shop:search
+PASS --output json
+FAIL ━━━</system-out></testcase><testcase name="case-18" classname="shopping" time="2.805"><system-out>PASS kpass shop:cart
+PASS --output json</system-out></testcase><testcase name="case-19" classname="shopping" time="4.786"><failure message="Literal or semantic-review failure">Missing literal assertions: kpass shop:checkout
+Semantic review: pending</failure><system-out>FAIL kpass shop:checkout
+PASS --output json</system-out></testcase><testcase name="case-20" classname="wallet-send" time="6.416"><failure message="Literal or semantic-review failure">Missing literal assertions: ━━━
+Semantic review: pending</failure><system-out>PASS kpass wallet balance
+PASS --output json
+FAIL ━━━</system-out></testcase><testcase name="case-21" classname="wallet-send" time="5.296"><failure message="Literal or semantic-review failure">Missing literal assertions: kpass wallet send, --to 0xabc123def456, --asset USDC, --amount 5, --output json
+Semantic review: pending</failure><system-out>FAIL kpass wallet send
+FAIL --to 0xabc123def456
+FAIL --asset USDC
+FAIL --amount 5
+FAIL --output json</system-out></testcase><testcase name="case-22" classname="x402-execute" time="12.015"><system-out>PASS session execute
+PASS --url
+PASS --output json</system-out></testcase><testcase name="case-23" classname="x402-execute" time="9.026"><system-out>PASS session execute
+PASS --body
+PASS --output json</system-out></testcase><testcase name="case-24" classname="authenticate-user" time="7.622"><system-out>PASS kpass logout
+PASS --output json</system-out></testcase><testcase name="case-25" classname="authenticate-user" time="5.295"><system-out>PASS kpass signup init
+PASS --client agent
+PASS --no-interactive
+PASS --output json</system-out></testcase><testcase name="case-26" classname="authenticate-user" time="3.853"><system-out>PASS kpass login verify
+PASS login_id</system-out></testcase><testcase name="case-27" classname="wallet-send" time="5.234"><system-out>PASS kpass faucet drop
+PASS --recipient
+PASS --token USDC
+PASS --output json</system-out></testcase><testcase name="case-28" classname="wallet-send" time="11.605"><failure message="Literal or semantic-review failure">Missing literal assertions: --asset ETH
+Semantic review: pending</failure><system-out>PASS kpass wallet send
+FAIL --asset ETH
+PASS --amount 0.5
+PASS --output json</system-out></testcase><testcase name="case-29" classname="manage-agents" time="3.876"><system-out>PASS kpass user agents
+PASS --agent-type claude
+PASS --output json</system-out></testcase><testcase name="case-30" classname="manage-agents" time="5.51"><system-out>PASS kpass user sessions
+PASS --status active
+PASS --output json</system-out></testcase><testcase name="case-31" classname="request-session" time="11.379"><system-out>PASS kpass session status --request-id
+PASS --output json</system-out></testcase><testcase name="case-32" classname="request-session" time="9.831"><system-out>PASS kpass agent:register
+PASS --type claude
+PASS --output json</system-out></testcase><testcase name="case-33" classname="shopping" time="4.192"><failure message="Literal or semantic-review failure">Missing literal assertions: kpass shop:cart add, --provider, --external-id
+Semantic review: pending</failure><system-out>FAIL kpass shop:cart add
+FAIL --provider
+FAIL --external-id
+PASS --output json</system-out></testcase><testcase name="case-34" classname="shopping" time="2.537"><failure message="Literal or semantic-review failure">Missing literal assertions: kpass shop:cart remove, --provider, --external-id
+Semantic review: pending</failure><system-out>FAIL kpass shop:cart remove
+FAIL --provider
+FAIL --external-id
+PASS --output json</system-out></testcase><testcase name="case-35" classname="shopping" time="4.682"><failure message="Literal or semantic-review failure">Missing literal assertions: kpass shop:cart clear
+Semantic review: pending</failure><system-out>FAIL kpass shop:cart clear
+PASS --output json</system-out></testcase><testcase name="case-36" classname="shopping" time="3.826"><system-out>PASS kpass shop:shipping update
+PASS --line1
+PASS --city
+PASS --postal
+PASS --output json</system-out></testcase><testcase name="case-37" classname="shopping" time="5.505"><system-out>PASS kpass shop:order status
+PASS --order-id
+PASS --output json</system-out></testcase><testcase name="case-38" classname="kite-discovery" time="19.02"><system-out>PASS ksearch service list
+PASS --asset USDC
+PASS --output json</system-out></testcase><testcase name="case-39" classname="kite-discovery" time="3.886"><failure message="Literal or semantic-review failure">Missing literal assertions: ksearch service list, --cursor, --output json
+Semantic review: pending</failure><system-out>FAIL ksearch service list
+FAIL --cursor
+FAIL --output json</system-out></testcase><testcase name="case-40" classname="kite-discovery" time="3.929"><system-out>PASS ksearch service health
+PASS --output json</system-out></testcase><testcase name="case-41" classname="x402-execute" time="9.103"><system-out>PASS session execute
+PASS --method PUT
+PASS --body
+PASS --output json</system-out></testcase><testcase name="case-42" classname="x402-execute" time="11.324"><system-out>PASS session execute
+PASS --headers
+PASS X-Api-Version
+PASS --output json</system-out></testcase><testcase name="case-43" classname="x402-execute" time="11.857"><system-out>PASS x402.status_code
+PASS 404</system-out></testcase><testcase name="case-44" classname="request-session" time="8.172"><system-out>PASS kpass session list --status active
+PASS spent_total
+PASS max_total_amount
+PASS --output json</system-out></testcase><testcase name="case-45" classname="request-session" time="10.113"><failure message="Literal or semantic-review failure">Missing literal assertions: payment_policy, max_amount_per_tx
+Semantic review: pending</failure><system-out>PASS curl
+PASS api.payments.xyz
+FAIL payment_policy
+FAIL max_amount_per_tx</system-out></testcase><testcase name="case-46" classname="request-session" time="7.323"><failure message="Literal or semantic-review failure">Missing literal assertions: session create, --output json
+Semantic review: pending</failure><system-out>FAIL session create
+FAIL --output json</system-out></testcase><testcase name="case-47" classname="x402-execute" time="11.721"><failure message="Literal or semantic-review failure">Missing literal assertions: kpass activity, --kind x402_payment
+Semantic review: pending</failure><system-out>FAIL kpass activity
+FAIL --kind x402_payment
+PASS --output json</system-out></testcase><testcase name="case-48" classname="shopping" time="9.376"><failure message="Literal or semantic-review failure">Missing literal assertions: kpass activity, --kind shopping_checkout, --offset
+Semantic review: pending</failure><system-out>FAIL kpass activity
+FAIL --kind shopping_checkout
+PASS --output json
+FAIL --offset</system-out></testcase><testcase name="case-49" classname="kite-discovery" time="11.957"><system-out>PASS ksearch service list
+PASS --query
+PASS ksearch service get
+PASS service_id
+PASS --output json</system-out></testcase><testcase name="case-50" classname="shopping" time="3.851"><failure message="Literal or semantic-review failure">Missing literal assertions: kpass shop:cart add, shop:checkout, --confirmed
+Semantic review: pending</failure><system-out>FAIL kpass shop:cart add
+FAIL shop:checkout
+FAIL --confirmed
+PASS --output json</system-out></testcase><testcase name="case-51" classname="request-session" time="6.842"><failure message="Literal or semantic-review failure">Missing literal assertions: kpass session create, --delegation, max_amount_per_tx, max_total_amount
+Semantic review: pending</failure><system-out>FAIL kpass session create
+FAIL --delegation
+FAIL max_amount_per_tx
+FAIL max_total_amount
+PASS --output json</system-out></testcase><testcase name="case-52" classname="request-session" time="35.964"><system-out>PASS kpass session create
+PASS --delegation
+PASS max_amount_per_tx
+PASS max_total_amount
+PASS --output json</system-out></testcase><testcase name="case-53" classname="attach-session" time="19.033"><system-out>PASS kpass session attach
+PASS --session-id session_dash7788
+PASS --output json
+PASS human_action_required
+PASS kpass session status --request-id
+PASS --wait
+PASS Session Attached</system-out></testcase><testcase name="case-54" classname="attach-session" time="13.416"><system-out>PASS kpass session attach
+PASS session_not_attachable
+PASS request-session</system-out></testcase><testcase name="case-55" classname="attach-session" time="7.278"><system-out>PASS kpass session attach
+PASS agent_not_same_owner
+PASS --output json</system-out></testcase><testcase name="case-56" classname="wallet-send" time="22.509"><system-out>PASS kpass wallet address
+PASS --chain base
+PASS --output json
+PASS Gas is sponsored
+PASS USDC only
+PASS do not send ETH</system-out></testcase><testcase name="case-57" classname="buyer-agent-setup" time="29.371"><system-out>PASS kpass agent init
+PASS --output json
+PASS thumbprint</system-out></testcase><testcase name="case-58" classname="buyer-agent-setup" time="12.367"><system-out>PASS kpass agent token create --agent did:kite:acme-buyer-01
+PASS kpass agent bind --agent did:kite:acme-buyer-01 --token
+PASS active</system-out></testcase><testcase name="case-59" classname="buyer-agent-setup" time="11.863"><system-out>PASS kpass agent status
+PASS --output json
+PASS binding.status</system-out></testcase><testcase name="case-60" classname="buyer-agent-setup" time="11.956"><failure message="Literal or semantic-review failure">Missing literal assertions: different agent, ask rather than
+Semantic review: pending</failure><system-out>PASS runtime_agent_mismatch
+FAIL different agent
+FAIL ask rather than</system-out></testcase><testcase name="case-61" classname="seller-agent-setup" time="8.433"><failure message="Literal or semantic-review failure">Missing literal assertions: kagent init, --output json, thumbprint
+Semantic review: pending</failure><system-out>FAIL kagent init
+FAIL --output json
+FAIL thumbprint</system-out></testcase><testcase name="case-62" classname="seller-agent-setup" time="15.07"><failure message="Literal or semantic-review failure">Missing literal assertions: kagent bind --agent did:kite:acme-seller-01 --token
+Semantic review: pending</failure><system-out>PASS kpass agent token create --agent did:kite:acme-seller-01
+FAIL kagent bind --agent did:kite:acme-seller-01 --token
+PASS active</system-out></testcase><testcase name="case-63" classname="seller-agent-setup" time="19.71"><system-out>PASS kagent card fetch --pin
+PASS kagent card publish --file
+PASS card_hash_verified</system-out></testcase><testcase name="case-64" classname="seller-agent-setup" time="34.73"><system-out>PASS registration template
+PASS registration validate
+PASS registration publish
+PASS --storefront
+PASS --rate-card
+PASS --workflow-terms</system-out></testcase><testcase name="case-65" classname="seller-fulfill" time="20.875"><failure message="Literal or semantic-review failure">Missing literal assertions: set its acceptance policy, owner action
+Semantic review: pending</failure><system-out>PASS acceptance_policy_violation
+FAIL set its acceptance policy
+FAIL owner action</system-out></testcase><testcase name="case-66" classname="seller-agent-setup" time="9.628"><failure message="Literal or semantic-review failure">Missing literal assertions: buyers verify this hash
+Semantic review: pending</failure><system-out>PASS card_hash_verified
+PASS PUBLISHED, BUT THE HASH COULD NOT BE CONFIRMED
+FAIL buyers verify this hash</system-out></testcase><testcase name="case-67" classname="buyer-find-seller" time="14.385"><system-out>PASS ksearch find
+PASS --output json
+PASS rewrite_applied
+PASS verified_tier</system-out></testcase><testcase name="case-68" classname="buyer-find-seller" time="14.248"><system-out>PASS ksearch agent offerings
+PASS --offering-kind dataset
+PASS --max-total-price-minor
+PASS --ready</system-out></testcase><testcase name="case-69" classname="buyer-find-seller" time="5.05"><failure message="Literal or semantic-review failure">Missing literal assertions: exit 8
+Semantic review: pending</failure><system-out>PASS ksearch agent card did:kite:example-seller
+PASS card_hash_verified
+FAIL exit 8</system-out></testcase><testcase name="case-70" classname="buyer-find-seller" time="8.041"><system-out>PASS ksearch agent keys
+PASS active_count
+PASS --seller-key-id</system-out></testcase><testcase name="case-71" classname="buyer-find-seller" time="6.87"><system-out>PASS kpass agent card fetch --pin
+PASS chain_context_complete</system-out></testcase><testcase name="case-72" classname="seller-fulfill" time="13.048"><system-out>PASS kagent agreement status --agreement-id agr_7f2a
+PASS kagent agreement accept --agreement-id agr_7f2a
+PASS --output json</system-out></testcase><testcase name="case-73" classname="seller-fulfill" time="14.224"><system-out>PASS acceptance_policy_violation
+PASS kagent escalate
+PASS --kind acceptance-override
+PASS approval_url</system-out></testcase><testcase name="case-74" classname="seller-fulfill" time="9.694"><system-out>PASS kagent agreement funding get --agreement-id agr_7f2a
+PASS activation_signable
+PASS kagent agreement funding sign --agreement-id agr_7f2a</system-out></testcase><testcase name="case-75" classname="seller-fulfill" time="10.446"><failure message="Literal or semantic-review failure">Missing literal assertions: NOT uploaded
+Semantic review: pending</failure><system-out>PASS kagent agreement deliver --agreement-id agr_7f2a --file
+PASS not funded
+FAIL NOT uploaded</system-out></testcase><testcase name="case-76" classname="seller-serve" time="11.532"><system-out>PASS kagent serve
+PASS --config
+PASS kite.config.yaml</system-out></testcase><testcase name="case-77" classname="seller-fulfill" time="15.801"><failure message="Literal or semantic-review failure">Missing literal assertions: kagent message send --to
+Semantic review: pending</failure><system-out>FAIL kagent message send --to
+PASS --body
+PASS --idempotency-key</system-out></testcase><testcase name="case-78" classname="buyer-purchase" time="18.8"><failure message="Literal or semantic-review failure">Missing literal assertions: kpass agent agreement propose --seller did:kite:example-seller
+Semantic review: pending</failure><system-out>FAIL kpass agent agreement propose --seller did:kite:example-seller
+PASS --terms-file
+PASS registrationBasis</system-out></testcase><testcase name="case-79" classname="buyer-purchase" time="10.524"><failure message="Literal or semantic-review failure">Missing literal assertions: kpass agent session request --agreement-id agr_123
+Semantic review: pending</failure><system-out>FAIL kpass agent session request --agreement-id agr_123
+PASS --max-amount-per-tx
+PASS --max-total-amount
+PASS approval_url</system-out></testcase><testcase name="case-80" classname="buyer-purchase" time="10.164"><system-out>PASS kpass agent fund --agreement-id agr_123
+PASS funding_submission_incomplete
+PASS identical command</system-out></testcase><testcase name="case-81" classname="buyer-purchase" time="16.465"><system-out>PASS agreement proofs --agreement-id agr_123 --verify
+PASS deliveryHash
+PASS sha256</system-out></testcase><testcase name="case-82" classname="buyer-purchase" time="9.445"><failure message="Literal or semantic-review failure">Missing literal assertions: kpass agent agreement reject --agreement-id agr_123
+Semantic review: pending</failure><system-out>FAIL kpass agent agreement reject --agreement-id agr_123
+PASS --reason-code delivery-hash-mismatch</system-out></testcase><testcase name="case-83" classname="buyer-purchase" time="8.924"><failure message="Literal or semantic-review failure">Missing literal assertions: kpass agent agreement review --agreement-id agr_123
+Semantic review: pending</failure><system-out>FAIL kpass agent agreement review --agreement-id agr_123
+PASS --rating
+PASS --output json</system-out></testcase><testcase name="case-84" classname="upgrade-passport" time="7.561"><system-out>PASS kpass upgrade --output json
+PASS no permission prompt
+PASS bundle 22</system-out></testcase><testcase name="case-85" classname="upgrade-passport" time="8.024"><failure message="Literal or semantic-review failure">Missing literal assertions: ask before running
+Semantic review: pending</failure><system-out>PASS KPASS_AUTO_UPGRADE=0
+FAIL ask before running
+PASS kpass upgrade</system-out></testcase><testcase name="case-86" classname="upgrade-passport" time="5.0"><system-out>PASS KPASS_NO_UPDATE_CHECK=1
+PASS update_available
+PASS kpass upgrade --check</system-out></testcase><testcase name="case-87" classname="upgrade-passport" time="4.135"><system-out>PASS kpass upgrade --check --output json
+PASS kpass upgrade --output json
+PASS up to date</system-out></testcase><testcase name="case-88" classname="upgrade-passport" time="7.571"><system-out>PASS irm https://cli.gokite.ai/install.ps1 | iex
+PASS I can't run it for you on Windows
+PASS PowerShell</system-out></testcase><testcase name="case-89" classname="kite-passport" time="8.832"><failure message="Literal or semantic-review failure">Missing literal assertions: kite-discovery, cannot produce locally
+Semantic review: pending</failure><system-out>FAIL kite-discovery
+PASS image generation
+FAIL cannot produce locally</system-out></testcase><testcase name="case-90" classname="kite-passport" time="9.293"><system-out>PASS wallet-send
+PASS no spending session
+PASS wallet</system-out></testcase><testcase name="case-91" classname="kite-passport" time="5.075"><failure message="Literal or semantic-review failure">Missing literal assertions: no paid service, produces it directly
+Semantic review: pending</failure><system-out>PASS ASCII
+FAIL no paid service
+FAIL produces it directly</system-out></testcase><testcase name="case-92" classname="kite-passport" time="9.581"><failure message="Literal or semantic-review failure">Missing literal assertions: real-time
+Semantic review: pending</failure><system-out>PASS kite-discovery
+PASS exchange rate
+FAIL real-time</system-out></testcase><testcase name="case-93" classname="seller-serve" time="13.177"><failure message="Literal or semantic-review failure">Missing literal assertions: the cwd IS the configuration
+Semantic review: pending</failure><system-out>PASS kagent serve --config
+FAIL the cwd IS the configuration
+PASS kite.config.yaml</system-out></testcase><testcase name="case-94" classname="seller-serve" time="9.037"><failure message="Literal or semantic-review failure">Missing literal assertions: one executable path, AGENT_MAX_TURNS
+Semantic review: pending</failure><system-out>FAIL one executable path
+PASS wrapper script
+FAIL AGENT_MAX_TURNS</system-out></testcase><testcase name="case-95" classname="seller-serve" time="9.975"><system-out>PASS seller-agent-setup
+PASS active binding
+PASS seller-fulfill</system-out></testcase><testcase name="case-96" classname="seller-serve" time="4.134"><system-out>PASS out/active-registration.json
+PASS kagent registration get --output json
+PASS cannot quote right now</system-out></testcase><testcase name="case-97" classname="seller-serve" time="6.117"><failure message="Literal or semantic-review failure">Missing literal assertions: escalates every proposal to the owner
+Semantic review: pending</failure><system-out>PASS seller-acceptance
+PASS .claude/skills/
+FAIL escalates every proposal to the owner</system-out></testcase><testcase name="case-98" classname="kite-seller" time="4.815"><failure message="Literal or semantic-review failure">Missing literal assertions: agent-delivery, exactly ONE JSON object, no shell
+Semantic review: pending</failure><system-out>FAIL agent-delivery
+FAIL exactly ONE JSON object
+FAIL no shell</system-out></testcase><testcase name="case-99" classname="kite-seller" time="23.261"><system-out>PASS out/active-registration.json
+PASS priceSchedule
+PASS requiredBeforeDeliveryMinor</system-out></testcase><testcase name="case-100" classname="kite-seller" time="6.267"><failure message="Literal or semantic-review failure">Missing literal assertions: out/quotes/used, unconsumed, the same work, not merely the same money
+Semantic review: pending</failure><system-out>FAIL out/quotes/used
+FAIL unconsumed
+FAIL the same work, not merely the same money</system-out></testcase><testcase name="case-101" classname="kite-seller" time="19.95"><system-out>PASS dispute
+PASS undesigned
+PASS escalates it to the owner</system-out></testcase><testcase name="case-102" classname="seller-onboarding" time="5.693"><failure message="Literal or semantic-review failure">Missing literal assertions: seller-onboarding, phase, public name
+Semantic review: pending</failure><system-out>FAIL seller-onboarding
+FAIL phase
+FAIL public name</system-out></testcase><testcase name="case-103" classname="seller-onboarding" time="8.154"><system-out>PASS resume
+PASS live</system-out></testcase><testcase name="case-104" classname="seller-onboarding" time="17.088"><system-out>PASS UID
+PASS permanent</system-out></testcase><testcase name="case-105" classname="seller-onboarding" time="25.447"><failure message="Literal or semantic-review failure">Missing literal assertions: propose
+Semantic review: pending</failure><system-out>FAIL propose
+PASS advertise
+PASS model-visible</system-out></testcase><testcase name="case-106" classname="seller-onboarding" time="7.024"><failure message="Literal or semantic-review failure">Missing literal assertions: recruiting/v1, silence
+Semantic review: pending</failure><system-out>FAIL recruiting/v1
+FAIL silence
+PASS confirm</system-out></testcase><testcase name="case-107" classname="seller-onboarding" time="14.422"><system-out>PASS dashboard
+PASS reserve
+PASS confirm</system-out></testcase><testcase name="case-108" classname="seller-onboarding" time="37.636"><system-out>PASS 35000000
+PASS reserve
+PASS explicit</system-out></testcase><testcase name="case-109" classname="kite-seller" time="4.414"><system-out>PASS seller-acceptance
+PASS request</system-out></testcase><testcase name="case-110" classname="kite-seller" time="17.13"><failure message="Literal or semantic-review failure">Missing literal assertions: consent-refund
+Semantic review: pending</failure><system-out>PASS seller-acceptance
+PASS rejected
+FAIL consent-refund</system-out></testcase><testcase name="case-111" classname="seller-onboarding" time="8.702"><system-out>PASS fail-closed
+PASS refuse</system-out></testcase><testcase name="case-112" classname="seller-onboarding" time="24.528"><system-out>PASS kagent serve
+PASS does not run</system-out></testcase><testcase name="case-113" classname="seller-onboarding" time="15.533"><system-out>PASS Playground
+PASS GOK-1272</system-out></testcase><testcase name="case-114" classname="seller-onboarding" time="14.638"><system-out>PASS standard/v1
+PASS confirm</system-out></testcase><testcase name="case-115" classname="seller-onboarding" time="8.097"><failure message="Literal or semantic-review failure">Missing literal assertions: fail-closed
+Semantic review: pending</failure><system-out>PASS pending
+FAIL fail-closed</system-out></testcase><testcase name="case-116" classname="seller-onboarding" time="10.575"><failure message="Literal or semantic-review failure">Missing literal assertions: card fetch --pin
+Semantic review: pending</failure><system-out>PASS identifier claim
+PASS owner
+FAIL card fetch --pin</system-out></testcase><testcase name="case-117" classname="seller-onboarding" time="10.466"><system-out>PASS pending
+PASS dashboard</system-out></testcase><testcase name="case-118" classname="seller-onboarding" time="6.867"><system-out>PASS checkpoint
+PASS compare</system-out></testcase><testcase name="case-119" classname="seller-onboarding" time="35.824"><system-out>PASS fixed/v1
+PASS --expected-revision
+PASS directory workflow</system-out></testcase><testcase name="case-120" classname="seller-onboarding" time="34.822"><system-out>PASS negotiated/v1
+PASS totalBounds
+PASS out/active-registration.json</system-out></testcase><testcase name="case-121" classname="seller-onboarding" time="11.037"><system-out>PASS details.problems
+PASS card fetch --pin</system-out></testcase><testcase name="case-122" classname="seller-onboarding" time="28.573"><failure message="Literal or semantic-review failure">Missing literal assertions: does not run
+Semantic review: pending</failure><system-out>PASS serve --config
+PASS 6.6.0
+FAIL does not run</system-out></testcase><testcase name="case-123" classname="seller-onboarding" time="24.529"><system-out>PASS .claude/skills
+PASS README</system-out></testcase><testcase name="case-124" classname="seller-onboarding" time="28.175"><system-out>PASS unlisted
+PASS directory search
+PASS card_hash_verified</system-out></testcase><testcase name="case-125" classname="seller-onboarding" time="21.119"><system-out>PASS resume
+PASS serve</system-out></testcase><testcase name="case-126" classname="seller-onboarding" time="12.79"><system-out>PASS readiness
+PASS workflowHash
+PASS directory workflow</system-out></testcase><testcase name="case-127" classname="seller-onboarding" time="40.276"><system-out>PASS card_hash_verified
+PASS stop</system-out></testcase><testcase name="case-128" classname="seller-onboarding" time="11.95"><system-out>PASS USDC
+PASS operator
+PASS CAIP-19</system-out></testcase><testcase name="case-129" classname="seller-onboarding" time="15.028"><failure message="Literal or semantic-review failure">Missing literal assertions: DEFAULT
+Semantic review: pending</failure><system-out>PASS silence
+FAIL DEFAULT
+PASS confirm</system-out></testcase><testcase name="case-130" classname="seller-onboarding" time="20.24"><system-out>PASS appeal
+PASS revise
+PASS REJECTED</system-out></testcase><testcase name="case-131" classname="seller-onboarding" time="66.03"><system-out>PASS onboarding_status
+PASS identifier_already_claimed
+PASS owner</system-out></testcase><testcase name="case-132" classname="seller-onboarding" time="7.255"><failure message="Literal or semantic-review failure">Missing literal assertions: not re
+Semantic review: pending</failure><system-out>PASS pending
+PASS dashboard
+FAIL not re</system-out></testcase><testcase name="case-133" classname="seller-onboarding" time="19.523"><failure message="Literal or semantic-review failure">Missing literal assertions: redacted
+Semantic review: pending</failure><system-out>FAIL redacted
+PASS placeholder
+PASS onboarding status</system-out></testcase><testcase name="case-134" classname="seller-onboarding" time="9.97"><failure message="Literal or semantic-review failure">Missing literal assertions: cannot guarantee
+Semantic review: pending</failure><system-out>PASS model
+FAIL cannot guarantee
+PASS deterministic</system-out></testcase><testcase name="case-135" classname="seller-onboarding" time="14.387"><error type="adapter_error" message="No usable transcript; assertions were not waived" /><system-out>FAIL roll-forward-only
+FAIL author card
+FAIL authorization</system-out></testcase><testcase name="case-136" classname="seller-onboarding" time="31.085"><failure message="Literal or semantic-review failure">Missing literal assertions: sufficient
+Semantic review: pending</failure><system-out>PASS directory search
+FAIL sufficient
+PASS optional</system-out></testcase><testcase name="case-137" classname="seller-onboarding" time="11.372"><system-out>PASS sha256sum
+PASS 64-hex
+PASS first</system-out></testcase><testcase name="case-138" classname="seller-onboarding" time="46.079"><system-out>PASS registration/prev
+PASS before phase 3
+PASS author card</system-out></testcase></testsuite>

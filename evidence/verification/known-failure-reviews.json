@@ -1,0 +1,10 @@
+[
+  {
+    "id": 31,
+    "response_sha256": "5b074435f71f1fc5600e57e98924c328768729bbb2a483d3cc451a8844ac1341",
+    "verdict": "fail",
+    "reviewer": "documented fixture expectation (not a live audit)",
+    "quote": "--wait",
+    "rationale": "The upstream case requires one status check without --wait after explicit user approval. This deliberately reconstructed stale command passes positive literals but violates expected behavior."
+  }
+]

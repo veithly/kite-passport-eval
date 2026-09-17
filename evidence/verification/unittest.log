@@ -1,0 +1,37 @@
+test_error_only_recovery_preserves_others (test_recovery.RecoveryTests) ... ok
+test_no_cherry_picking_or_changed_requests (test_recovery.RecoveryTests) ... ok
+test_all_official_assertions_and_424_deletion_mutants (test_runner.OfficialSuiteTests) ... ok
+test_all_skill_contexts_have_no_eval_artifacts (test_runner.OfficialSuiteTests) ... ok
+test_every_official_id_mapped_once (test_runner.OfficialSuiteTests) ... ok
+test_assertion_offsets_and_unicode (test_runner.RunnerTests) ... ok
+test_case_sensitive_and_not_regex (test_runner.RunnerTests) ... ok
+test_cli_good_replay_and_overwrite_refusal (test_runner.RunnerTests) ... ok
+test_cli_validation_error_code (test_runner.RunnerTests) ... ok
+test_error_never_scores_partial_stdout (test_runner.RunnerTests) ... ok
+test_export_integrity_and_no_overwrite (test_runner.RunnerTests) ... ok
+test_html_injection_and_xml_controls (test_runner.RunnerTests) ... ok
+test_input_size_is_bounded (test_runner.RunnerTests) ... ok
+test_invalid_limits_rejected (test_runner.RunnerTests) ... ok
+test_invalid_suite_shapes (test_runner.RunnerTests) ... ok
+test_missing_cases_not_skipped (test_runner.RunnerTests) ... ok
+test_no_answer_key_in_request (test_runner.RunnerTests) ... ok
+test_nonfinite_duplicate_and_malformed_json (test_runner.RunnerTests) ... ok
+test_orphan_keeps_pipe_open_is_bounded (test_runner.RunnerTests) ... ok
+test_output_limit_combines_stdout_and_stderr (test_runner.RunnerTests) ... ok
+test_process_protocol_and_unicode (test_runner.RunnerTests) ... ok
+test_reject_pinned_drift (test_runner.RunnerTests) ... ok
+test_replay_roundtrip (test_runner.RunnerTests) ... ok
+test_replay_unknown_duplicate_and_mismatched_records (test_runner.RunnerTests) ... ok
+test_required_review_fails_closed (test_runner.RunnerTests) ... ok
+test_required_review_is_visible_in_junit (test_runner.RunnerTests) ... ok
+test_review_failure_overrides_literal_pass (test_runner.RunnerTests) ... ok
+test_reviews_bound_to_current_response (test_runner.RunnerTests) ... ok
+test_spawn_nonzero_invalid_protocol_and_shell_literal (test_runner.RunnerTests) ... ok
+test_suite_round_trip (test_runner.RunnerTests) ... ok
+test_symlink_context_rejected (test_runner.RunnerTests) ... ok
+test_timeout_kills_process_group (test_runner.RunnerTests) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 0.476s
+
+OK

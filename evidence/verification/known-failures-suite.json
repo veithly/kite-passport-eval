@@ -1,0 +1,42 @@
+[
+  {
+    "id": 4,
+    "prompt": "Log me in to Kite Passport",
+    "expected_output": "Agent runs setup.sh, then kpass login init --email <EMAIL> --client agent --output json --no-interactive, asks the user for the OTP code, then runs kpass login verify with KPASS_LOGIN_CODE",
+    "assertions": [
+      "kpass login init",
+      "--client agent",
+      "--output json",
+      "--no-interactive"
+    ]
+  },
+  {
+    "id": 9,
+    "prompt": "Find paid APIs for weather data",
+    "expected_output": "Agent runs setup-ksearch.sh, then ksearch service list --query weather --output json, and renders each service as a display card with name, summary, pricing, and base URL",
+    "assertions": [
+      "ksearch service list",
+      "--query",
+      "--output json"
+    ]
+  },
+  {
+    "id": 31,
+    "prompt": "I approved the session in my Passport app — is it active yet?",
+    "expected_output": "Agent runs kpass session status --request-id <REQUEST_ID> --output json -- a single check without --wait, since the user has already signaled approval -- and reports whether the session is now active",
+    "assertions": [
+      "kpass session status --request-id",
+      "--output json"
+    ]
+  },
+  {
+    "id": 76,
+    "prompt": "You're going to run as a live service that responds to deals in real time -- how should you start taking work?",
+    "expected_output": "Agent recommends running kagent serve --config kite.config.yaml --sweep-interval 30s from the seller directory. serve itself holds the platform stream and the signing key and runs the seller's own model for each item, so the seller writes no platform code and does not call kagent listen directly -- that CLI-driven path (seller-fulfill) is only for a seller that cannot keep a process running, already owns its own agent loop, or needs something the served brain can't express.",
+    "assertions": [
+      "kagent serve",
+      "--config",
+      "kite.config.yaml"
+    ]
+  }
+]
