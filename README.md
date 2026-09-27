@@ -2,9 +2,9 @@
 
 **An auditable evaluation runner for Kite Passport Skills. Evidence, not guesses.**
 
-[Browse the report](https://veithly.github.io/kite-passport-eval/) · [CI](https://github.com/veithly/kite-passport-eval/actions/workflows/ci.yml) · [中文说明](README.zh-CN.md) · [Acceptance evidence](docs/ACCEPTANCE.md)
+[Browse the report](https://veithly.github.io/kite-passport-eval/) · [Regression gate](https://veithly.github.io/kite-passport-eval/regression-gate/) · [CI](https://github.com/veithly/kite-passport-eval/actions/workflows/ci.yml) · [中文说明](README.zh-CN.md) · [Acceptance evidence](docs/ACCEPTANCE.md)
 
-Proofroom fills the automated-runner gap described in the official [Passport evaluation README](https://github.com/gokite-ai/passport-skills/blob/1ff773981566ac1755ccf23e98983cd76c81bf08/evals/README.md). It executes the unchanged 138-case suite through a replaceable agent adapter, checks every one of its 424 literal assertions, and exports an offline evidence ledger plus JSON, Markdown, JUnit and SHA-256 manifests.
+Proofroom fills the automated-runner gap described in the official [Passport evaluation README](https://github.com/gokite-ai/passport-skills/blob/1ff773981566ac1755ccf23e98983cd76c81bf08/evals/README.md). It executes the unchanged 138-case suite through a replaceable agent adapter, checks every one of its 424 literal assertions, exports an offline evidence ledger, and can fail CI when a candidate report regresses from a trusted baseline.
 
 This is independent, AI-assisted community work by **Rick / @veithly**, not an official Kite product. Original upstream cases and documentation remain credited to Kite AI under [their MIT license](LICENSE.upstream). The runner, report interface, tests and integration are new work under [MIT](LICENSE).
 
@@ -16,7 +16,7 @@ This is independent, AI-assisted community work by **Rick / @veithly**, not an o
 
 | Layer | Recorded result | Meaning |
 |---|---:|---|
-| Runner tests | 32 passed, zero skipped | Input validation, resource limits, escaping, review gates, recovery and compatibility |
+| Runner tests | 41 passed, zero skipped | Input validation, resource limits, escaping, review gates, recovery, report comparison and compatibility |
 | Assertion deletion tests | 424/424 detected | Removing any official required literal makes its case fail |
 | Full real model capture | 138/138 valid responses | Text-only Claude Haiku 4.5 responses; not mock answers |
 | Literal case score | 81 pass / 57 fail | 321 of 424 exact strings matched; failures remain visible |
@@ -57,6 +57,21 @@ Open `http://127.0.0.1:8765`. The generated `index.html` also works directly off
 
 Optional package installation: `python3 -m pip install .` adds the `kite-eval` command. Package building uses setuptools; the installed runner still has no third-party runtime dependencies.
 
+## Week 2: fail-closed regression gates
+
+Version 1.1 adds a report-to-report CI gate for continued weekly work. Replay a candidate capture, then compare it with a baseline:
+
+```bash
+python3 -m kite_eval compare \
+  --baseline evidence/recovered/report.json \
+  --candidate runs/replay-01/report.json \
+  --out runs/regression-gate
+```
+
+Any previously passing literal that disappears, worse case status, or semantic-review downgrade makes the command exit `1`. A simultaneous improvement never cancels a loss. The comparator refuses suite/case/assertion drift and inconsistent report states, records response-hash changes, derives its own counters instead of trusting report summaries, and emits HTML, JSON, Markdown, JUnit and SHA-256 checksums. See [the regression-gate design](docs/REGRESSION_GATE.md).
+
+The GitHub Actions matrix now replays the preserved 138-case capture and applies this gate against the frozen published baseline on every push and pull request. No model call, wallet or provider credential is required.
+
 ## Fresh live evaluation — explicit opt-in
 
 This path requires **macOS or Linux**, an authenticated Claude Code CLI supporting the flags in `adapters/claude_safe.py`, and model allowance. The recorded release used CLI **2.1.202**, Python **3.9.6**, and the model reported by the CLI as **claude-haiku-4-5**.
@@ -87,7 +102,7 @@ A literal match can still hide an unsafe instruction. Optional `--reviews review
 | Exit code | Meaning |
 |---|---|
 | `0` | Every requested gate passed |
-| `1` | Literal failure, missing/error response, failed review or required pending review |
+| `1` | Literal failure, missing/error response, failed review, required pending review, or report regression |
 | `2` | Malformed input, drift, invalid configuration or filesystem/infrastructure problem |
 | `130` | Interrupted; preserve the journal |
 
@@ -99,6 +114,6 @@ The responsive offline HTML escapes all dynamic text, renders no model-generated
 
 ## CI and contributions
 
-[CI](.github/workflows/ci.yml) verifies on Linux/Python 3.9 and 3.13, and macOS/Python 3.13. It downloads the pinned upstream source but executes no upstream setup script and makes no live model calls. GitHub Actions are pinned to verified commit SHAs, credentials are not persisted, and PR jobs have read-only repository permissions. A separate main-branch Pages deployment publishes only the reviewed report after checks succeed.
+[CI](.github/workflows/ci.yml) verifies on Linux/Python 3.9 and 3.13, and macOS/Python 3.13. It downloads the pinned upstream source but executes no upstream setup script and makes no live model calls. It also compares the fresh replay with the frozen capture and fails closed on evidence regressions. GitHub Actions are pinned to verified commit SHAs, credentials are not persisted, and PR jobs have read-only repository permissions. A separate main-branch Pages deployment publishes the captured report after checks succeed.
 
 Contributions should include a failing test and its fix, preserve corpus integrity and provenance, and never substitute synthetic fixtures for live evidence. For newly added upstream cases, update the pinned revision, hash and explicit skill mapping together, then generate a fresh versioned capture. Do not alter old evidence in place.

@@ -14,6 +14,7 @@ import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from kite_eval.core import canonical, digest, exit_status, grade, load_suite, load_transcripts
+from kite_eval.compare import compare_reports, comparison_exit
 
 
 def fixture(case, response):
@@ -112,6 +113,10 @@ def main():
             previous = json.loads(baseline.read_text())
             assert [(c["id"], c["checks"], c["status"]) for c in live_report["cases"]] == [
                     (c["id"], c["checks"], c["status"]) for c in previous["cases"]]
+            comparison = compare_reports(previous, live_report)
+            if comparison_exit(comparison):
+                raise AssertionError("Fresh replay regressed from the frozen captured baseline")
+            summary["regression_gate_summary"] = comparison["summary"]
         summary["live_replay_summary"] = live_report["summary"]
         summary["live_capture_sha256"] = digest(args.live.read_bytes())
         summary["reported_model_cost_usd"] = round(sum(r.get("metadata", {}).get("cost_usd", 0) or 0 for r in records.values()), 6)

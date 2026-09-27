@@ -39,6 +39,12 @@ jobs:
           python-version: ${{ matrix.python }}
       - name: Verify all cases, all assertions and known failures (no model calls)
         run: python scripts/verify.py --upstream vendor/passport-skills --out runs/ci --require-live
+      - name: Gate replay against the frozen captured baseline
+        run: |
+          python -m kite_eval compare \
+            --baseline evidence/recovered/report.json \
+            --candidate runs/ci/live-replay/report.json \
+            --out runs/ci/regression-gate
       - name: Build and install package
         run: |
           python -m pip install .
@@ -73,9 +79,14 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           persist-credentials: false
+      - name: Prepare Pages artifact
+        run: |
+          mkdir -p site/regression-gate
+          cp -R evidence/recovered/. site/
+          cp -R evidence/week2/regression-gate/. site/regression-gate/
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         with:
-          path: evidence/recovered
+          path: site
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

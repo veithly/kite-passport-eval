@@ -11,6 +11,7 @@ from . import __version__
 from .core import (GROUPS, SKILL_BY_ID, UPSTREAM_COMMIT, InputError, canonical, capture,
                    context_for, decode, digest, exit_status, grade, load_reviews,
                    load_suite, load_transcripts, read_bytes, verify_upstream)
+from .compare import compare_reports, comparison_exit, load_report, write_comparison
 from .report import write_report
 
 
@@ -21,6 +22,10 @@ def main(argv=None) -> int:
     validate = sub.add_parser("validate", help="Validate unchanged upstream case format")
     validate.add_argument("--suite", type=Path, required=True)
     validate.add_argument("--pinned", action="store_true")
+    compare = sub.add_parser("compare", help="Fail CI if a candidate report regresses from a baseline")
+    compare.add_argument("--baseline", type=Path, required=True)
+    compare.add_argument("--candidate", type=Path, required=True)
+    compare.add_argument("--out", type=Path, required=True, help="New directory; never overwrite a comparison")
     replay = sub.add_parser("replay", help="Grade captured transcripts, never invoke an agent")
     replay.add_argument("--suite", type=Path, required=True)
     replay.add_argument("--transcripts", type=Path, required=True)
@@ -43,6 +48,17 @@ def main(argv=None) -> int:
             print(json.dumps({"cases": len(cases), "assertions": sum(len(c["assertions"]) for c in cases),
                               "sha256": sha, "pinned": args.pinned}))
             return 0
+        if args.command == "compare":
+            baseline = load_report(args.baseline)
+            candidate = load_report(args.candidate)
+            result = compare_reports(baseline, candidate)
+            result["baseline_report_sha256"] = digest(read_bytes(args.baseline))
+            result["candidate_report_sha256"] = digest(read_bytes(args.candidate))
+            args.out.mkdir(parents=True, exist_ok=False)
+            write_comparison(args.out, result)
+            print(json.dumps(result["summary"], sort_keys=True))
+            print("Comparison: " + str(args.out / "index.html"))
+            return comparison_exit(result)
         if args.command == "replay":
             cases, sha = load_suite(args.suite, args.pinned)
             records = load_transcripts(args.transcripts, cases)

@@ -2,13 +2,13 @@
 
 这是本周贡献方向 **Passport Skills Eval Runner** 的完整项目，作者 Rick / GitHub `@veithly`。项目使用 AI 辅助开发，不是 Kite 官方产品。
 
-[在线报告](https://veithly.github.io/kite-passport-eval/) · [CI 工作流](.github/workflows/ci.yml) · [英文完整说明](README.md) · [验收映射](docs/ACCEPTANCE.md)
+[在线报告](https://veithly.github.io/kite-passport-eval/) · [回归门禁](https://veithly.github.io/kite-passport-eval/regression-gate/) · [CI 工作流](.github/workflows/ci.yml) · [英文完整说明](README.md) · [验收映射](docs/ACCEPTANCE.md)
 
 ## 交付内容
 
 保留官方 `evals.json` 的全部 **138 个用例、424 条断言**，使用可替换模型适配器执行；每条断言输出通过/失败、匹配行号和字符位置。报告支持离线 HTML、JSON、Markdown、JUnit XML、哈希清单，并有搜索、技能筛选、状态筛选和原始响应查看。
 
-已完成 **32 项自动测试**及 **424 个逐条删除变异**；已知过期命令和 case 31 的字面断言盲区均有可重复的回归测试。GitHub Actions 不依赖钱包、模型密钥或付费请求。
+当前已完成 **41 项自动测试**及 **424 个逐条删除变异**；已知过期命令和 case 31 的字面断言盲区均有可重复的回归测试。GitHub Actions 不依赖钱包、模型密钥或付费请求。
 
 ## 真实结果，不刷通过率
 
@@ -17,6 +17,19 @@
 恢复后 **138/138 有有效响应，81 个用例字面通过、57 个字面失败，321/424 条断言命中**。没有把失败改成通过，也没有重试已经评分的用例来挑选更高分答案。调用均为无工具文本模式，没有执行登录、支付、钱包转账或卖家部署。
 
 运行器测试通过与模型用例通过是两件事：CI 的绿色意味着评分、错误处理和重放正确，不意味着模型表现全通过。字面命中也不能证明步骤顺序、语义正确或链上执行。真实响应的语义审查仍标记为待审；项目另提供与响应哈希绑定的人工审查接口。
+
+## 第 2 周新增：回归门禁
+
+1.1 版本新增 `kite-eval compare`。它可以把新的完整评测报告与已知基线逐条比较：只要出现“原本通过的字面断言消失”、case 状态变差、或语义审查状态降级，CI 就以退出码 `1` 失败。即使同一个 case 同时有其他断言改善，也不会抵消已经发生的退步。
+
+```bash
+python3 -m kite_eval compare \
+  --baseline evidence/recovered/report.json \
+  --candidate runs/replay-01/report.json \
+  --out runs/regression-gate
+```
+
+比较器拒绝不同 suite hash、case 集、断言列表以及自相矛盾的 report 状态；不信任来源报告里的 summary，而是重新推导计数。输出离线 HTML、JSON、Markdown、JUnit XML 与 SHA-256 清单，并明确记录响应哈希是否变化。GitHub Actions 已把该门禁加入 Linux / macOS 验证矩阵。详细规则见 [REGRESSION_GATE.md](docs/REGRESSION_GATE.md)。
 
 ## 复现
 

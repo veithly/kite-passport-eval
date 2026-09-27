@@ -10,6 +10,8 @@ The supplied adapter reads public prompts and skill documents and uses the user'
 
 HTML output escapes prompts, expected outputs, assertions, responses and review text; no remote assets, analytics or model-generated HTML are loaded. Content Security Policy disallows network/resource loading except the trusted inline CSS/JavaScript. External review of the generated report is still advisable before publishing private corpora.
 
+The report comparator also treats both baseline and candidate JSON as untrusted. It uses the strict JSON decoder, bounded reads, rejects duplicate IDs/literals and internally inconsistent statuses, requires the same suite/cases/assertions, escapes comparison HTML and strips invalid JUnit XML control characters. A comparison establishes relative evidence stability, not authenticity of a maliciously replaced baseline; keep trusted baselines under code review and verify repository history.
+
 A conservative release pattern scan checks for private-key headers, common GitHub/provider token patterns and local user paths. Passing that scan does not prove absence of sensitive information. Never publish raw captures from private user prompts without authorization. Public evidence here is derived from the MIT-licensed upstream scenarios, not from the operator's inbox, browser history, account balances or filesystem.
 
 For a suspected vulnerability, use GitHub private vulnerability reporting where available, or contact the maintainer privately. Do not paste credentials into a public issue. Include a minimal redacted fixture and the affected runner version.
