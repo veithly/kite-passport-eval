@@ -45,6 +45,16 @@ jobs:
             --baseline evidence/recovered/report.json \
             --candidate runs/ci/live-replay/report.json \
             --out runs/ci/regression-gate
+      - name: Verify release provenance and all 138 model requests offline
+        run: |
+          python -m kite_eval audit \
+            --upstream vendor/passport-skills \
+            --adapter adapters/claude-safe.json \
+            --original evidence/live \
+            --retry evidence/retry-135 \
+            --recovered evidence/recovered \
+            --release-pins \
+            --out runs/ci/evidence-audit
       - name: Build and install package
         run: |
           python -m pip install .
@@ -82,8 +92,10 @@ jobs:
       - name: Prepare Pages artifact
         run: |
           mkdir -p site/regression-gate
+          mkdir -p site/evidence-audit
           cp -R evidence/recovered/. site/
           cp -R evidence/week2/regression-gate/. site/regression-gate/
+          cp -R evidence/week4/audit/. site/evidence-audit/
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         with:
           path: site

@@ -2,7 +2,7 @@
 
 **An auditable evaluation runner for Kite Passport Skills. Evidence, not guesses.**
 
-[Browse the report](https://veithly.github.io/kite-passport-eval/) · [Regression gate](https://veithly.github.io/kite-passport-eval/regression-gate/) · [CI](https://github.com/veithly/kite-passport-eval/actions/workflows/ci.yml) · [中文说明](README.zh-CN.md) · [Acceptance evidence](docs/ACCEPTANCE.md)
+[Browse the report](https://veithly.github.io/kite-passport-eval/) · [Evidence audit](https://veithly.github.io/kite-passport-eval/evidence-audit/) · [Regression gate](https://veithly.github.io/kite-passport-eval/regression-gate/) · [CI](https://github.com/veithly/kite-passport-eval/actions/workflows/ci.yml) · [中文说明](README.zh-CN.md) · [Week 4 acceptance evidence](docs/WEEK4_ACCEPTANCE.md)
 
 Proofroom fills the automated-runner gap described in the official [Passport evaluation README](https://github.com/gokite-ai/passport-skills/blob/1ff773981566ac1755ccf23e98983cd76c81bf08/evals/README.md). It executes the unchanged 138-case suite through a replaceable agent adapter, checks every one of its 424 literal assertions, exports an offline evidence ledger, and can fail CI when a candidate report regresses from a trusted baseline.
 
@@ -16,7 +16,7 @@ This is independent, AI-assisted community work by **Rick / @veithly**, not an o
 
 | Layer | Recorded result | Meaning |
 |---|---:|---|
-| Runner tests | 41 passed, zero skipped | Input validation, resource limits, escaping, review gates, recovery, report comparison and compatibility |
+| Runner tests | 54 passed, zero skipped | Input validation, adapter limits, evidence reconstruction, tamper detection, recovery, report comparison and compatibility |
 | Assertion deletion tests | 424/424 detected | Removing any official required literal makes its case fail |
 | Full real model capture | 138/138 valid responses | Text-only Claude Haiku 4.5 responses; not mock answers |
 | Literal case score | 81 pass / 57 fail | 321 of 424 exact strings matched; failures remain visible |
@@ -72,6 +72,25 @@ Any previously passing literal that disappears, worse case status, or semantic-r
 
 The GitHub Actions matrix now replays the preserved 138-case capture and applies this gate against the frozen published baseline on every push and pull request. No model call, wallet or provider credential is required.
 
+## Week 4: independent offline evidence audit
+
+Version 1.2 adds an original **release provenance auditor**, not another run of the same old model. It independently reconstructs the hash of each of the 138 prompts plus all relevant official Passport Skills documents; then verifies the exact adapter config, 138 model-response records, 424 scored assertions, every published bundle checksum, and original → one-error retry → recovered lineage.
+
+```bash
+python3 -m kite_eval audit \
+  --upstream vendor/passport-skills \
+  --adapter adapters/claude-safe.json \
+  --original evidence/live \
+  --retry evidence/retry-135 \
+  --recovered evidence/recovered \
+  --release-pins \
+  --out runs/audit-01
+```
+
+The pinned historical release passes **644/644 independent consistency checks**, verified alongside **54 tests** and the existing 424 assertion-deletion mutants. The auditor rejects attempts to alter the response while re-signing the local checksum file, falsify a request's skill context, forge a report score, or replace a previously scored response with a cherry-picked retry. Its self-contained [online audit ledger](https://veithly.github.io/kite-passport-eval/evidence-audit/) exports HTML, JSON, JUnit, Markdown and checksums. The [complete security model and reproduction steps](docs/EVIDENCE_AUDIT.md) explain what this proves—and why internal hashes cannot certify external model behavior or on-chain payments.
+
+CI now runs the audit with independent code-reviewed v1.0 SHA-256 pins as a **hard publishing gate**, on all three OS/Python configurations, without model credentials.
+
 ## Fresh live evaluation — explicit opt-in
 
 This path requires **macOS or Linux**, an authenticated Claude Code CLI supporting the flags in `adapters/claude_safe.py`, and model allowance. The recorded release used CLI **2.1.202**, Python **3.9.6**, and the model reported by the CLI as **claude-haiku-4-5**.
@@ -114,6 +133,6 @@ The responsive offline HTML escapes all dynamic text, renders no model-generated
 
 ## CI and contributions
 
-[CI](.github/workflows/ci.yml) verifies on Linux/Python 3.9 and 3.13, and macOS/Python 3.13. It downloads the pinned upstream source but executes no upstream setup script and makes no live model calls. It also compares the fresh replay with the frozen capture and fails closed on evidence regressions. GitHub Actions are pinned to verified commit SHAs, credentials are not persisted, and PR jobs have read-only repository permissions. A separate main-branch Pages deployment publishes the captured report after checks succeed.
+[CI](.github/workflows/ci.yml) verifies on Linux/Python 3.9 and 3.13, and macOS/Python 3.13. It downloads the pinned upstream source but executes no upstream setup script and makes no live model calls. It compares the replay with the frozen capture **and independently audits all release provenance** before publication. GitHub Actions are pinned to verified commit SHAs, credentials are not persisted, and PR jobs have read-only repository permissions. Main-branch Pages deployment publishes the captured report, regression gate and audit ledger after checks succeed.
 
 Contributions should include a failing test and its fix, preserve corpus integrity and provenance, and never substitute synthetic fixtures for live evidence. For newly added upstream cases, update the pinned revision, hash and explicit skill mapping together, then generate a fresh versioned capture. Do not alter old evidence in place.

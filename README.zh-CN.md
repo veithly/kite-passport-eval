@@ -2,13 +2,13 @@
 
 这是本周贡献方向 **Passport Skills Eval Runner** 的完整项目，作者 Rick / GitHub `@veithly`。项目使用 AI 辅助开发，不是 Kite 官方产品。
 
-[在线报告](https://veithly.github.io/kite-passport-eval/) · [回归门禁](https://veithly.github.io/kite-passport-eval/regression-gate/) · [CI 工作流](.github/workflows/ci.yml) · [英文完整说明](README.md) · [验收映射](docs/ACCEPTANCE.md)
+[在线报告](https://veithly.github.io/kite-passport-eval/) · [证据审计](https://veithly.github.io/kite-passport-eval/evidence-audit/) · [回归门禁](https://veithly.github.io/kite-passport-eval/regression-gate/) · [CI 工作流](.github/workflows/ci.yml) · [英文完整说明](README.md) · [第 4 周验收](docs/WEEK4_ACCEPTANCE.md)
 
 ## 交付内容
 
 保留官方 `evals.json` 的全部 **138 个用例、424 条断言**，使用可替换模型适配器执行；每条断言输出通过/失败、匹配行号和字符位置。报告支持离线 HTML、JSON、Markdown、JUnit XML、哈希清单，并有搜索、技能筛选、状态筛选和原始响应查看。
 
-当前已完成 **41 项自动测试**及 **424 个逐条删除变异**；已知过期命令和 case 31 的字面断言盲区均有可重复的回归测试。GitHub Actions 不依赖钱包、模型密钥或付费请求。
+当前已完成 **54 项自动测试**及 **424 个逐条删除变异**；已知过期命令和 case 31 的字面断言盲区均有可重复的回归测试。GitHub Actions 不依赖钱包、模型密钥或付费请求。
 
 ## 真实结果，不刷通过率
 
@@ -30,6 +30,25 @@ python3 -m kite_eval compare \
 ```
 
 比较器拒绝不同 suite hash、case 集、断言列表以及自相矛盾的 report 状态；不信任来源报告里的 summary，而是重新推导计数。输出离线 HTML、JSON、Markdown、JUnit XML 与 SHA-256 清单，并明确记录响应哈希是否变化。GitHub Actions 已把该门禁加入 Linux / macOS 验证矩阵。详细规则见 [REGRESSION_GATE.md](docs/REGRESSION_GATE.md)。
+
+## 第 4 周新增：独立证据审计
+
+Proofroom 1.2 新增 `kite-eval audit`：从冻结的官方 Passport Skills 文档逐条重建 **138 个实际模型请求 SHA-256**；检查官方用例、模型响应、424 条断言评分、三份证据包的文件哈希，并验证首轮失败、**只补测一次基础设施错误**、最终恢复结果是否严格一致，禁止挑选已经评分的回答换成高分。
+
+```bash
+python3 -m kite_eval audit \
+  --upstream vendor/passport-skills \
+  --adapter adapters/claude-safe.json \
+  --original evidence/live \
+  --retry evidence/retry-135 \
+  --recovered evidence/recovered \
+  --release-pins \
+  --out runs/audit-01
+```
+
+现有真实证据通过 **644 / 644 项独立一致性检查**，新增多类篡改负面测试：伪造请求哈希、重写 checksum、修改报告通过数、替换本来已成功的答复、注入恶意 HTML、绕过 symlink 防护等。CI 使用经过代码审查的发布 SHA-256 固定值严格核验，失败立即阻止报告发布。审计输出可离线浏览，支持 HTML、JSON、Markdown、JUnit、哈希清单。
+
+这不是重新调用模型“刷通过率”，也不是对模型、链上交易或钱包的第三方签名认证。历史真实结果仍然是 **81 通过、57 失败**；完整威胁模型和复现方法见 [EVIDENCE_AUDIT.md](docs/EVIDENCE_AUDIT.md)。
 
 ## 复现
 

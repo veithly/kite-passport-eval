@@ -12,6 +12,7 @@ from .core import (GROUPS, SKILL_BY_ID, UPSTREAM_COMMIT, InputError, canonical, 
                    context_for, decode, digest, exit_status, grade, load_reviews,
                    load_suite, load_transcripts, read_bytes, verify_upstream)
 from .compare import compare_reports, comparison_exit, load_report, write_comparison
+from .audit import audit_evidence, write_audit
 from .report import write_report
 
 
@@ -26,6 +27,15 @@ def main(argv=None) -> int:
     compare.add_argument("--baseline", type=Path, required=True)
     compare.add_argument("--candidate", type=Path, required=True)
     compare.add_argument("--out", type=Path, required=True, help="New directory; never overwrite a comparison")
+    audit = sub.add_parser("audit", help="Reconstruct request hashes, report scoring and error-only recovery")
+    audit.add_argument("--upstream", type=Path, required=True)
+    audit.add_argument("--adapter", type=Path, required=True)
+    audit.add_argument("--recovered", type=Path, required=True)
+    audit.add_argument("--original", type=Path, required=True)
+    audit.add_argument("--retry", type=Path, required=True)
+    audit.add_argument("--release-pins", action="store_true",
+                       help="Require immutable release-v1.0 SHA-256 trust anchors")
+    audit.add_argument("--out", type=Path, required=True, help="New audit directory; never overwrite")
     replay = sub.add_parser("replay", help="Grade captured transcripts, never invoke an agent")
     replay.add_argument("--suite", type=Path, required=True)
     replay.add_argument("--transcripts", type=Path, required=True)
@@ -59,6 +69,14 @@ def main(argv=None) -> int:
             print(json.dumps(result["summary"], sort_keys=True))
             print("Comparison: " + str(args.out / "index.html"))
             return comparison_exit(result)
+        if args.command == "audit":
+            result = audit_evidence(args.upstream, args.adapter, args.recovered,
+                                    args.original, args.retry, args.release_pins)
+            args.out.mkdir(parents=True, exist_ok=False)
+            write_audit(args.out, result)
+            print(json.dumps(result["summary"], sort_keys=True))
+            print("Audit: " + str(args.out / "index.html"))
+            return int(result["summary"]["failed"] != 0)
         if args.command == "replay":
             cases, sha = load_suite(args.suite, args.pinned)
             records = load_transcripts(args.transcripts, cases)
